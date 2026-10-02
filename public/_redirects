@@ -1,0 +1,62 @@
+# Anciennes URLs WordPress -> nouvelles pages (301 permanentes)
+/traitement-punaise-de-lit-idf          /punaises-de-lit/                          301
+/traitement-punaise-de-lit-idf/         /punaises-de-lit/                          301
+/punaise-de-lit-landing                 /punaises-de-lit/                          301
+/punaise-de-lit-landing/                /punaises-de-lit/                          301
+/punaise-de-lit-solution                /punaises-de-lit/                          301
+/punaise-de-lit-solution/               /punaises-de-lit/                          301
+/landing-cafard                         /desinsectisation-cafards-blattes-idf/     301
+/landing-cafard/                        /desinsectisation-cafards-blattes-idf/     301
+/traitement-souris-idf                  /deratisation-paris/                       301
+/traitement-souris-idf/                 /deratisation-paris/                       301
+/landing-deratisation                   /deratisation-paris/                       301
+/landing-deratisation/                  /deratisation-paris/                       301
+/landing-deratisation-2                 /deratisation-paris/                       301
+/landing-deratisation-2/                /deratisation-paris/                       301
+/landing-deratiseur                     /deratisation-paris/                       301
+/landing-deratiseur/                    /deratisation-paris/                       301
+/traitement-termites-idf                /services-lutte-nuisibles-paris/           301
+/traitement-termites-idf/               /services-lutte-nuisibles-paris/           301
+/landing-nuisibles                      /                                          301
+/landing-nuisibles/                     /                                          301
+/nos-tarifs-prestations                 /tarifs-deratisation-desinsectisation-idf/ 301
+/nos-tarifs-prestations/                /tarifs-deratisation-desinsectisation-idf/ 301
+/nos-tarifs-prestations-sur-mesure      /tarifs-deratisation-desinsectisation-idf/ 301
+/nos-tarifs-prestations-sur-mesure/     /tarifs-deratisation-desinsectisation-idf/ 301
+/demander-un-devis-2                    /demander-un-devis/                        301
+/demander-un-devis-2/                   /demander-un-devis/                        301
+/elite-nuisibles-idf                    /                                          301
+/elite-nuisibles-idf/                   /                                          301
+/accueil                                /                                          301
+/accueil/                               /                                          301
+/shop                                   /                                          301
+/shop/                                  /                                          301
+/cart                                   /                                          301
+/cart/                                  /                                          301
+/checkout                               /                                          301
+/checkout/                              /                                          301
+/sample-page                            /                                          301
+/sample-page/                           /                                          301
+/client-services-deratisation-paris     /contact-elite-nuisibles-idf/              301
+/client-services-deratisation-paris/    /contact-elite-nuisibles-idf/              301
+/contact                                /contact-elite-nuisibles-idf/              301
+/contact/                               /contact-elite-nuisibles-idf/              301
+/tarifs                                 /tarifs-deratisation-desinsectisation-idf/ 301
+/tarifs/                                /tarifs-deratisation-desinsectisation-idf/ 301
+
+# Sitemaps et flux WordPress / Rank Math
+/sitemap_index.xml                      /sitemap.xml                               301
+/page-sitemap.xml                       /sitemap.xml                               301
+/post-sitemap.xml                       /sitemap.xml                               301
+/wp-sitemap.xml                         /sitemap.xml                               301
+/feed                                   /blog/                                     301
+/feed/*                                 /blog/                                     301
+/category/*                             /blog/                                     301
+/author/*                               /blog/                                     301
+/page/*                                 /blog/                                     301
+/comments/*                             /blog/                                     301
+
+# Admin WordPress (n'existe plus)
+/wp-admin                               /                                          301
+/wp-admin/*                             /                                          301
+/wp-login.php                           /                                          301
