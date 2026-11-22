@@ -80,33 +80,36 @@ const others = post ? ARTICLES.filter((a) => a.slug !== post.slug).slice(0, 3) :
     jsonLd={[localBusinessLd(), serviceLd!, faqLd(pest.faq), breadcrumbLd(pestCrumbs)]}
     preloadImage={pest.heroImage}
   >
-    <div class="container" style="padding-top:36px">
-      <div class="split" style="align-items:flex-start">
-        <div class="split-main stack" style="gap:20px">
-          <nav aria-label="Fil d'Ariane">
-            <ol class="crumbs">
-              {pestCrumbs.map((c, i) => <li>{i < pestCrumbs.length - 1 ? <a href={c.path}>{c.name}</a> : <span aria-current="page">{c.name}</span>}</li>)}
-            </ol>
-          </nav>
-          <span class="chip chip-navy" style="align-self:flex-start"><i class="dot" aria-hidden="true"></i>{pest.eyebrow}</span>
-          <h1 class="h1" style="font-size:clamp(32px,4.6vw,52px)">{pest.h1}</h1>
-          <p class="lead" style="font-weight:700;color:var(--navy)">{pest.tagline}</p>
-          <ul class="checklist">
-            {pest.bullets.map((b) => <li><Icon name="check" size={18} stroke={2.8} />{b}</li>)}
-          </ul>
-          <div class="cta-row">
-            <CallButton large />
-            <span class="price-from">à partir de <b class="price" style="font-size:30px">{pest.priceFrom}</b></span>
-          </div>
-          <a class="rating" href="#avis"><Stars label={`Note ${SITE.rating.value} sur 5`} />{SITE.rating.value}/5 sur {SITE.rating.count} avis Google</a>
-          <figure class="media" style="aspect-ratio:16/9;margin-top:8px">
-            <img src={pest.heroImage} alt={pest.heroAlt} width="1600" height="900" fetchpriority="high" />
-          </figure>
+    <div class="container">
+      <section class="hero">
+        <nav aria-label="Fil d'Ariane">
+          <ol class="crumbs">
+            {pestCrumbs.map((c, i) => <li>{i < pestCrumbs.length - 1 ? <a href={c.path}>{c.name}</a> : <span aria-current="page">{c.name}</span>}</li>)}
+          </ol>
+        </nav>
+        <span class="chip chip-navy"><i class="dot" aria-hidden="true"></i>{pest.eyebrow}</span>
+        <h1 class="h1">{pest.h1}</h1>
+        <p class="lead">{pest.tagline} À partir de <b style="color:var(--navy)">{pest.priceFrom}</b>, prix fixe annoncé avant d'intervenir.</p>
+        <div class="cta-row">
+          <CallButton large />
+          <a href="#rappel" class="btn btn-ghost btn-lg m-hide" style="font-size:17px">Devis gratuit en 20 min</a>
         </div>
-        <div class="split-side sticky-side">
-          <LeadForm source={`Site principal - ${pest.serviceName}`} service={pest.formService} title="Devis gratuit en 20 minutes" subtitle="Un expert vous rappelle, sans engagement." button="J'obtiens mon devis" message />
+        <ul class="pills center">
+          {pest.bullets.map((b) => <li><Icon name="check" size={18} stroke={2.8} />{b}</li>)}
+        </ul>
+        <a class="rating" href="#avis"><Stars label={`Note ${SITE.rating.value} sur 5`} />{SITE.rating.value}/5 sur {SITE.rating.count} avis Google</a>
+      </section>
+
+      <section class="split" style="margin-bottom:32px">
+        <div class="photo split-main">
+          <img src={pest.heroImage} alt={pest.heroAlt} width="1600" height="900" fetchpriority="high" />
+          <span class="float end"><Icon name="shield" size={18} />Entreprise assurée</span>
+          <span class="float start"><i class="dot" aria-hidden="true"></i><span>Joignable 24h/24, 7j/7</span></span>
         </div>
-      </div>
+        <div class="split-side">
+          <LeadForm source={`Site principal - ${pest.serviceName}`} service={pest.formService} title="Devis gratuit en 20 minutes" subtitle="Un expert vous rappelle. Gratuit, sans engagement." button="J'obtiens mon devis" />
+        </div>
+      </section>
     </div>
 
     <TrustStrip />

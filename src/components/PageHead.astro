@@ -3,7 +3,7 @@ import type { Crumb } from '../lib/seo';
 interface Props { crumbs: Crumb[]; title: string; intro?: string; eyebrow?: string; compact?: boolean }
 const { crumbs, title, intro, eyebrow, compact = false } = Astro.props;
 ---
-<div class:list={['container page-head', !compact && 'centered']}>
+<div class="container page-head centered">
   <nav aria-label="Fil d'Ariane">
     <ol class="crumbs">
       {crumbs.map((c, i) => (

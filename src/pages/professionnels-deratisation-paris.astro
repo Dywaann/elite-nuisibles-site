@@ -42,26 +42,34 @@ const SECTEURS = ['Restaurants et bars', 'Hôtels et locations', 'Commerces', 'B
   jsonLd={[localBusinessLd(), faqLd(FAQ), breadcrumbLd(crumbs)]}
   preloadImage={hero}
 >
-  <div class="container" style="padding-top:36px">
-    <div class="split" style="align-items:flex-start">
-      <div class="split-main stack" style="gap:20px">
-        <nav aria-label="Fil d'Ariane"><ol class="crumbs"><li><a href="/">Accueil</a></li><li><span aria-current="page">Professionnels</span></li></ol></nav>
-        <span class="chip chip-navy" style="align-self:flex-start"><i class="dot" aria-hidden="true"></i>Hôtels, bars, restaurants et commerces</span>
-        <h1 class="h1" style="font-size:clamp(32px,4.6vw,52px)">Dératisation et désinsectisation pour les professionnels</h1>
-        <p class="lead" style="font-weight:700;color:var(--navy)">Protégez votre établissement et votre réputation</p>
-        <ul class="checklist">
-          <li><Icon name="check" size={18} stroke={2.8} />Intervention discrète, hors horaires</li>
-          <li><Icon name="check" size={18} stroke={2.8} />Rapport pour vos contrôles sanitaires</li>
-          <li><Icon name="check" size={18} stroke={2.8} />Contrats de suivi sur-mesure</li>
-        </ul>
-        <div class="cta-row"><CallButton large /></div>
-        <a class="rating" href="#avis"><Stars label={`Note ${SITE.rating.value} sur 5`} />{SITE.rating.value}/5 sur {SITE.rating.count} avis Google</a>
-        <figure class="media" style="aspect-ratio:16/7;margin-top:8px"><img src={hero} alt="Technicien traitant une cuisine professionnelle" width="1600" height="673" fetchpriority="high" /></figure>
+  <div class="container">
+    <section class="hero">
+      <nav aria-label="Fil d'Ariane"><ol class="crumbs"><li><a href="/">Accueil</a></li><li><span aria-current="page">Professionnels</span></li></ol></nav>
+      <span class="chip chip-navy"><i class="dot" aria-hidden="true"></i>Hôtels, restaurants et commerces</span>
+      <h1 class="h1">Dératisation et désinsectisation pour les professionnels</h1>
+      <p class="lead">Protégez votre établissement et votre réputation, sans gêner votre activité.</p>
+      <div class="cta-row">
+        <CallButton large />
+        <a href="#rappel" class="btn btn-ghost btn-lg m-hide" style="font-size:17px">Devis gratuit en 20 min</a>
       </div>
-      <div class="split-side sticky-side">
-        <LeadForm source="Site principal - Professionnels" service="Professionnel - Dératisation / désinsectisation" title="Devis professionnel gratuit" subtitle="Un expert vous rappelle pour évaluer vos besoins." button="J'obtiens mon devis" message />
+      <ul class="pills center">
+        <li><Icon name="check" size={18} stroke={2.8} />Intervention discrète, hors horaires</li>
+        <li><Icon name="check" size={18} stroke={2.8} />Rapport pour vos contrôles</li>
+        <li><Icon name="check" size={18} stroke={2.8} />Contrats de suivi sur-mesure</li>
+      </ul>
+      <a class="rating" href="#avis"><Stars label={`Note ${SITE.rating.value} sur 5`} />{SITE.rating.value}/5 sur {SITE.rating.count} avis Google</a>
+    </section>
+
+    <section class="split" style="margin-bottom:32px">
+      <div class="photo split-main">
+        <img src={hero} alt="Technicien traitant une cuisine professionnelle" width="1600" height="673" fetchpriority="high" />
+        <span class="float end"><Icon name="shield" size={18} />Entreprise assurée</span>
+        <span class="float start"><i class="dot" aria-hidden="true"></i><span>Joignable 24h/24, 7j/7</span></span>
       </div>
-    </div>
+      <div class="split-side">
+        <LeadForm source="Site principal - Professionnels" service="Professionnel - Dératisation / désinsectisation" title="Devis professionnel gratuit" subtitle="Un expert vous rappelle. Gratuit, sans engagement." button="J'obtiens mon devis" />
+      </div>
+    </section>
   </div>
 
   <TrustStrip />
