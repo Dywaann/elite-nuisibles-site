@@ -3,6 +3,10 @@ import Base from '../layouts/Base.astro';
 import PageHead from '../components/PageHead.astro';
 import ContactBlock from '../components/ContactBlock.astro';
 import Zones from '../components/Zones.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Engagements from '../components/Engagements.astro';
+import Reviews from '../components/Reviews.astro';
+import FinalCta from '../components/FinalCta.astro';
 import { breadcrumbLd, localBusinessLd } from '../lib/seo';
 const path = '/contact-elite-nuisibles-idf/';
 const crumbs = [{ name: 'Accueil', path: '/' }, { name: 'Contact', path }];
@@ -15,5 +19,9 @@ const crumbs = [{ name: 'Accueil', path: '/' }, { name: 'Contact', path }];
 >
   <PageHead crumbs={crumbs} title="Contactez-nous" intro="Les artisans les mieux notés d'Île-de-France sont disponibles maintenant." />
   <ContactBlock source="Site principal - Contact" />
+  <TrustStrip />
+  <Engagements />
+  <Reviews />
   <Zones />
+  <FinalCta />
 </Base>

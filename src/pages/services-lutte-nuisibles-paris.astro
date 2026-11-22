@@ -6,6 +6,9 @@ import CallButton from '../components/CallButton.astro';
 import Reviews from '../components/Reviews.astro';
 import Faq from '../components/Faq.astro';
 import FinalCta from '../components/FinalCta.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import ConversionBlock from '../components/ConversionBlock.astro';
+
 import { GENERAL_FAQ, PESTS_ALL } from '../data/site';
 import { breadcrumbLd, localBusinessLd } from '../lib/seo';
 
@@ -32,9 +35,11 @@ const PROMISES = [
     <div class="cta-row"><CallButton /><a class="btn btn-ghost" href="/demander-un-devis/">Demander un devis gratuit</a></div>
   </PageHead>
 
+  <TrustStrip />
+
   <section class="section">
     <div class="container">
-      <div class="grid grid-3">
+      <div class="grid grid-3 m-scroll">
         {BIG.map((s) => (
           <a class="glass post-card reveal" href={s.to}>
             <div class="thumb"><img src={s.img} alt="" loading="lazy" width="640" height="360" /></div>
@@ -56,7 +61,7 @@ const PROMISES = [
         <h2 class="h2 center">Une solution adaptée à chaque nuisible</h2>
         <p class="lead center">Notre équipe utilise des techniques avancées et des produits professionnels homologués pour garantir l'efficacité de chaque intervention.</p>
       </div>
-      <div class="grid grid-3">
+      <div class="grid grid-3 m-scroll">
         {PESTS_ALL.map((p) => (
           <a class="glass card reveal" href={p.to} style="border-radius:22px;padding:22px">
             <h3 class="h3" style="font-size:18px">{p.name}</h3>
@@ -71,7 +76,7 @@ const PROMISES = [
   <section class="section" style="padding-top:0">
     <div class="container">
       <div class="section-head center reveal"><span class="eyebrow">Notre engagement</span><h2 class="h2 center">Qualité, réactivité, sécurité</h2></div>
-      <div class="grid grid-3">
+      <div class="grid grid-3 m-scroll">
         {PROMISES.map((e) => (
           <div class="glass feature reveal"><span class="ico"><Icon name={e.icon} size={22} /></span><div><h3>{e.title}</h3><p>{e.text}</p></div></div>
         ))}
@@ -80,6 +85,7 @@ const PROMISES = [
   </section>
 
   <Reviews />
+  <ConversionBlock source="Site principal - Services" />
   <Faq items={GENERAL_FAQ} />
   <FinalCta />
 </Base>

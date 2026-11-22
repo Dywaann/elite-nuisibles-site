@@ -3,6 +3,9 @@ import Base from '../layouts/Base.astro';
 import PageHead from '../components/PageHead.astro';
 import ContactBlock from '../components/ContactBlock.astro';
 import Reviews from '../components/Reviews.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Engagements from '../components/Engagements.astro';
+import FinalCta from '../components/FinalCta.astro';
 import { breadcrumbLd } from '../lib/seo';
 const path = '/demander-un-devis/';
 const crumbs = [{ name: 'Accueil', path: '/' }, { name: 'Demander un devis', path }];
@@ -15,5 +18,8 @@ const crumbs = [{ name: 'Accueil', path: '/' }, { name: 'Demander un devis', pat
 >
   <PageHead crumbs={crumbs} title="Demander un devis gratuit" intro="Obtenez votre devis en 1 clic : un expert vous rappelle en moins de 20 minutes." />
   <ContactBlock source="Site principal - Page devis" title="Obtenir mon devis gratuit" />
+  <TrustStrip />
+  <Engagements />
   <Reviews />
+  <FinalCta />
 </Base>

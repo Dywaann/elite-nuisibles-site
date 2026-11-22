@@ -10,6 +10,10 @@ import Faq from '../components/Faq.astro';
 import FinalCta from '../components/FinalCta.astro';
 import PostCard from '../components/PostCard.astro';
 import PageHead from '../components/PageHead.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import ConversionBlock from '../components/ConversionBlock.astro';
+import Engagements from '../components/Engagements.astro';
+
 import { PESTS, type PestPageData } from '../data/pests';
 import { SERVICES_NAV, SITE } from '../data/site';
 import { ARTICLES, ARTICLES_BY_SLUG, formatDateFr, type Article } from '../lib/articles';
@@ -105,6 +109,8 @@ const others = post ? ARTICLES.filter((a) => a.slug !== post.slug).slice(0, 3) :
       </div>
     </div>
 
+    <TrustStrip />
+
     <section class="section">
       <div class="container narrow stack reveal" style="gap:18px">
         <h2 class="h2">{pest.intro.title}</h2>
@@ -115,7 +121,7 @@ const others = post ? ARTICLES.filter((a) => a.slug !== post.slug).slice(0, 3) :
     <section class="section" style="padding-top:0">
       <div class="container">
         <div class="section-head center reveal"><span class="eyebrow">Les risques</span><h2 class="h2 center">{pest.dangers.title}</h2></div>
-        <div class="grid grid-3">
+        <div class="grid grid-3 m-scroll">
           {pest.dangers.items.map((d) => (
             <div class="glass feature reveal"><span class="ico"><Icon name="alert" size={22} /></span><div><h3>{d.title}</h3><p>{d.text}</p></div></div>
           ))}
@@ -130,7 +136,7 @@ const others = post ? ARTICLES.filter((a) => a.slug !== post.slug).slice(0, 3) :
           <h2 class="h2">{pest.methods.title}</h2>
           <p class="lead">{pest.methods.intro}</p>
         </div>
-        <div class="grid grid-3" style="gap:16px">
+        <div class="grid grid-3 m-scroll" style="gap:16px">
           {pest.methods.items.map((m) => (
             <div class="tile">
               {m.badge && <span class="badge">{m.badge}</span>}
@@ -165,13 +171,14 @@ const others = post ? ARTICLES.filter((a) => a.slug !== post.slug).slice(0, 3) :
       <section class="section" style="padding-top:0">
         <div class="container">
           <div class="section-head reveal"><span class="eyebrow">Pour aller plus loin</span><h2 class="h2">Nos conseils sur le sujet</h2></div>
-          <div class="grid grid-3">{related.map((p) => <PostCard post={p} />)}</div>
+          <div class="grid grid-3 m-scroll">{related.map((p) => <PostCard post={p} />)}</div>
         </div>
       </section>
     )}
 
+    <Engagements />
     <Reviews />
-    <FinalCta />
+    <ConversionBlock source={`Site principal - ${pest.serviceName}`} service={pest.formService} />
   </Base>
 )}
 
@@ -218,9 +225,10 @@ const others = post ? ARTICLES.filter((a) => a.slug !== post.slug).slice(0, 3) :
     <section class="section" style="padding-top:0">
       <div class="container">
         <div class="section-head reveal"><h2 class="h2">À lire aussi</h2></div>
-        <div class="grid grid-3">{others.map((p) => <PostCard post={p} />)}</div>
+        <div class="grid grid-3 m-scroll">{others.map((p) => <PostCard post={p} />)}</div>
       </div>
     </section>
-    <FinalCta />
+    <Reviews />
+    <ConversionBlock source={`Blog - ${post.slug}`} service="Demande depuis le blog" />
   </Base>
 )}

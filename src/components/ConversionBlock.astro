@@ -1,0 +1,37 @@
+---
+// Bloc de conversion de bas de page : appel immédiat + formulaire de rappel.
+import Icon from './Icon.astro';
+import Stars from './Stars.astro';
+import CallButton from './CallButton.astro';
+import LeadForm from './LeadForm.astro';
+import { SITE } from '../data/site';
+interface Props { id?: string; source: string; service?: string; title?: string; text?: string }
+const {
+  id = 'devis-bas',
+  source,
+  service = 'Demande de devis - Site principal',
+  title = 'Un nuisible chez vous ? Parlons-en maintenant',
+  text = 'Appelez pour un conseil immédiat, ou laissez vos coordonnées : un expert vous rappelle en 20 minutes.',
+} = Astro.props;
+---
+<section class="section" aria-labelledby={`${id}-titre`}>
+  <div class="container">
+    <div class="split" style="align-items:stretch">
+      <div class="dark split-main stack reveal" style="gap:18px;justify-content:center">
+        <span class="eyebrow">Urgence 24h/24 · 7j/7</span>
+        <h2 id={`${id}-titre`} class="h2">{title}</h2>
+        <p class="lead">{text}</p>
+        <ul class="checks">
+          <li><Icon name="check" size={18} stroke={2.8} />Déplacement et devis gratuits</li>
+          <li><Icon name="check" size={18} stroke={2.8} />Prix fixe annoncé avant l'intervention</li>
+          <li><Icon name="check" size={18} stroke={2.8} />Techniciens certifiés Certibiocide</li>
+        </ul>
+        <div class="cta-row"><CallButton large /></div>
+        <span class="rating"><Stars label={`Note ${SITE.rating.value} sur 5`} />{SITE.rating.value}/5 sur {SITE.rating.count} avis Google</span>
+      </div>
+      <div class="split-side reveal">
+        <LeadForm id={id} source={`${source} - bas de page`} service={service} title="Être rappelé en 20 minutes" subtitle="Devis gratuit et sans engagement." message />
+      </div>
+    </div>
+  </div>
+</section>

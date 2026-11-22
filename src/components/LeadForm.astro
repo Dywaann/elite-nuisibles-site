@@ -15,6 +15,7 @@ const {
   heading = 'h2',
 } = Astro.props;
 const H = heading;
+const test = import.meta.env.PUBLIC_NOINDEX === '1' ? '[TEST aperçu] ' : '';
 ---
 <form id={id} class="glass form" novalidate data-lead data-source={source} data-service={service}>
   <div>
@@ -22,7 +23,7 @@ const H = heading;
     <p class="sub">{subtitle}</p>
   </div>
   <input type="hidden" name="access_key" value={SITE.web3formsKey} />
-  <input type="hidden" name="subject" value={`Nouveau lead · ${source}`} />
+  <input type="hidden" name="subject" value={`${test}Nouveau lead · ${source}`} />
   <input type="hidden" name="from_name" value={`${source} Elite Nuisibles`} />
   <input type="hidden" name="Service" value={service} />
   <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" hidden />

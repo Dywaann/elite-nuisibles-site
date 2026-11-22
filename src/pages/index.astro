@@ -10,6 +10,7 @@ import Engagements from '../components/Engagements.astro';
 import Reviews from '../components/Reviews.astro';
 import Zones from '../components/Zones.astro';
 import Faq from '../components/Faq.astro';
+import ConversionBlock from '../components/ConversionBlock.astro';
 import FinalCta from '../components/FinalCta.astro';
 import PostCard from '../components/PostCard.astro';
 import { GENERAL_FAQ, HOME_SERVICES, PESTS_ALL, SITE } from '../data/site';
@@ -32,7 +33,7 @@ const hero = '/images/hero-techniciens-traitement-nuisibles.webp';
       <p class="lead">Rats, souris, punaises de lit, cafards, fourmis : un technicien certifié chez vous rapidement, avec un prix fixe annoncé avant l'intervention.</p>
       <div class="cta-row">
         <CallButton large />
-        <a href="#rappel" class="btn btn-ghost btn-lg" style="font-size:17px">Être rappelé en 20 minutes</a>
+        <a href="#rappel" class="btn btn-ghost btn-lg m-hide" style="font-size:17px">Être rappelé en 20 minutes</a>
       </div>
       <ul class="pills center">
         <li><Icon name="check" size={18} stroke={2.8} />Déplacement et devis gratuits</li>
@@ -62,7 +63,7 @@ const hero = '/images/hero-techniciens-traitement-nuisibles.webp';
         <span class="eyebrow">Nos interventions</span>
         <h2 id="titre-services" class="h2 center">Un prix fixe, annoncé avant l'intervention</h2>
       </div>
-      <div class="grid grid-3">
+      <div class="grid grid-3 m-scroll">
         {HOME_SERVICES.map((s) => (
           <a class="glass card reveal" href={s.to}>
             <span class="price-from">à partir de</span>
@@ -75,8 +76,8 @@ const hero = '/images/hero-techniciens-traitement-nuisibles.webp';
       </div>
       <div class="glass card reveal" style="margin-top:20px">
         <h3 class="h3">Tous les nuisibles que nous traitons</h3>
-        <ul class="grid grid-3" style="gap:10px 28px;font-size:15px">
-          {PESTS_ALL.map((p) => <li class="muted"><a href={p.to} style="font-weight:800;color:var(--navy)">{p.name}</a> : {p.desc}</li>)}
+        <ul class="grid grid-3 pest-list" style="gap:10px 28px;font-size:15px">
+          {PESTS_ALL.map((p) => <li class="muted"><a href={p.to} style="font-weight:800;color:var(--navy)">{p.name}</a><span class="d"> : {p.desc}</span></li>)}
         </ul>
         <a class="link-arrow" href="/services-lutte-nuisibles-paris/">Voir tous nos services <Icon name="arrow" size={18} /></a>
       </div>
@@ -120,12 +121,13 @@ const hero = '/images/hero-techniciens-traitement-nuisibles.webp';
         </div>
         <a class="link-arrow" href="/blog/">Tous les articles <Icon name="arrow" size={18} /></a>
       </div>
-      <div class="grid grid-3">
+      <div class="grid grid-3 m-scroll">
         {ARTICLES.slice(0, 3).map((p) => <PostCard post={p} />)}
       </div>
     </div>
   </section>
 
+  <ConversionBlock source="Site principal - Accueil" />
   <Faq items={GENERAL_FAQ} />
   <FinalCta />
 </Base>

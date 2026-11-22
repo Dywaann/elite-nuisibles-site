@@ -18,6 +18,8 @@ interface Props {
 const { title, description, path, image, noindex = false, type = 'website', jsonLd = [], preloadImage } = Astro.props;
 const url = `${SITE.url}${path}`;
 const img = `${SITE.url}${image || SITE.ogImage}`;
+// Vrai sur les aperçus Netlify (voir netlify.toml) : ni indexation ni balises de suivi.
+const preview = import.meta.env.PUBLIC_NOINDEX === '1';
 ---
 <!doctype html>
 <html lang="fr">
@@ -27,7 +29,7 @@ const img = `${SITE.url}${image || SITE.ogImage}`;
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={url} />
-    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
+    <meta name="robots" content={preview ? 'noindex, nofollow' : noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
     <meta name="theme-color" content="#053a61" />
     <meta name="google-site-verification" content={SITE.googleSiteVerification} />
     <link rel="icon" type="image/png" href="/favicon.png" />
@@ -43,6 +45,8 @@ const img = `${SITE.url}${image || SITE.ogImage}`;
     {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
     {jsonLd.map((ld) => <script type="application/ld+json" set:html={JSON.stringify(ld)} />)}
     <script is:inline>document.documentElement.classList.add('js');</script>
+    {!preview && (
+      <Fragment>
     <!-- Google Tag Manager -->
     <script is:inline define:vars={{ gtm: SITE.gtmId }}>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',gtm);</script>
     <!-- Google Analytics 4 -->
@@ -50,9 +54,11 @@ const img = `${SITE.url}${image || SITE.ogImage}`;
     <script is:inline define:vars={{ ga4: SITE.ga4Id }}>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config',ga4);</script>
     <!-- Microsoft Clarity -->
     <script is:inline define:vars={{ clarity: SITE.clarityId }}>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script",clarity);</script>
+      </Fragment>
+    )}
   </head>
   <body>
-    <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${SITE.gtmId}`} height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+    {!preview && <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${SITE.gtmId}`} height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>}
     <a class="skip" href="#contenu">Aller au contenu principal</a>
     <Header />
     <main id="contenu">

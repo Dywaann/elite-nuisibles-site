@@ -4,6 +4,11 @@ import PageHead from '../components/PageHead.astro';
 import CallButton from '../components/CallButton.astro';
 import Faq from '../components/Faq.astro';
 import FinalCta from '../components/FinalCta.astro';
+import Reviews from '../components/Reviews.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import ConversionBlock from '../components/ConversionBlock.astro';
+import Engagements from '../components/Engagements.astro';
+
 import { PRICES } from '../data/site';
 import { breadcrumbLd, localBusinessLd } from '../lib/seo';
 
@@ -34,10 +39,12 @@ const offers = {
   path={path}
   jsonLd={[localBusinessLd(), offers, breadcrumbLd(crumbs)]}
 >
-  <PageHead crumbs={crumbs} title="Nos tarifs" intro="Des tarifs compétitifs pour une qualité garantie. Déplacement et devis gratuits, prix fixe annoncé avant l'intervention." />
+  <PageHead crumbs={crumbs} title="Nos tarifs" intro="Des tarifs compétitifs pour une qualité garantie. Déplacement et devis gratuits, prix fixe annoncé avant l'intervention.">
+    <div class="cta-row"><CallButton /><a class="btn btn-ghost" href="#devis-bas">Être rappelé en 20 minutes</a></div>
+  </PageHead>
   <section class="section" style="padding-top:28px">
     <div class="container">
-      <div class="grid grid-3">
+      <div class="grid grid-3 m-scroll">
         {PRICES.map((p) => (
           <div class="glass price-card reveal">
             <h2 class="h3">{p.title}</h2>
@@ -60,6 +67,10 @@ const offers = {
       <p class="muted" style="margin-top:24px;font-size:14px">Tarifs TTC indicatifs pour les particuliers, ajustés selon la surface et le degré d'infestation. Devis valable 30 jours.</p>
     </div>
   </section>
+  <TrustStrip />
+  <Engagements />
+  <Reviews />
+  <ConversionBlock source="Site principal - Tarifs" />
   <Faq items={FAQ} title="Questions sur nos tarifs" />
   <FinalCta />
 </Base>

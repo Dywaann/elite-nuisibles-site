@@ -4,7 +4,9 @@ import Icon from '../components/Icon.astro';
 import Stars from '../components/Stars.astro';
 import CallButton from '../components/CallButton.astro';
 import LeadForm from '../components/LeadForm.astro';
-import Clients from '../components/Clients.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import ConversionBlock from '../components/ConversionBlock.astro';
+import Engagements from '../components/Engagements.astro';
 import Reviews from '../components/Reviews.astro';
 import Faq from '../components/Faq.astro';
 import FinalCta from '../components/FinalCta.astro';
@@ -60,8 +62,9 @@ const SECTEURS = ['Restaurants et bars', 'Hôtels et locations', 'Commerces', 'B
         <LeadForm source="Site principal - Professionnels" service="Professionnel - Dératisation / désinsectisation" title="Devis professionnel gratuit" subtitle="Un expert vous rappelle pour évaluer vos besoins." button="J'obtiens mon devis" message />
       </div>
     </div>
-    <div style="margin-top:32px"><Clients /></div>
   </div>
+
+  <TrustStrip />
 
   <section class="section">
     <div class="container">
@@ -70,7 +73,7 @@ const SECTEURS = ['Restaurants et bars', 'Hôtels et locations', 'Commerces', 'B
         <h2 class="h2 center">Les enjeux des nuisibles dans les établissements professionnels</h2>
         <p class="lead center">Dans l'hôtellerie, la restauration et le commerce, une seule infestation peut entraîner un contrôle sanitaire défavorable, des avis négatifs en ligne et une perte de clientèle.</p>
       </div>
-      <div class="grid grid-3">
+      <div class="grid grid-3 m-scroll">
         {ENJEUX.map((e) => <div class="glass feature reveal"><span class="ico"><Icon name={e.icon} size={22} /></span><div><h3>{e.title}</h3><p>{e.text}</p></div></div>)}
       </div>
     </div>
@@ -79,7 +82,7 @@ const SECTEURS = ['Restaurants et bars', 'Hôtels et locations', 'Commerces', 'B
   <div class="container">
     <section class="dark reveal">
       <div class="section-head" style="margin-bottom:28px"><span class="eyebrow">Nos solutions</span><h2 class="h2">Une protection totale et durable</h2></div>
-      <div class="grid grid-3" style="gap:16px">
+      <div class="grid grid-3 m-scroll" style="gap:16px">
         {SOLUTIONS.map((s) => <div class="tile"><h3>{s.title}</h3><p>{s.text}</p><ul>{s.perks.map((k) => <li><Icon name="check" size={16} stroke={2.8} />{k}</li>)}</ul></div>)}
       </div>
       <ul class="pills" style="margin-top:24px">
@@ -88,7 +91,9 @@ const SECTEURS = ['Restaurants et bars', 'Hôtels et locations', 'Commerces', 'B
     </section>
   </div>
 
+  <Engagements />
   <Reviews />
+  <ConversionBlock source="Site principal - Professionnels" service="Professionnel - Dératisation / désinsectisation" title="Un nuisible dans votre établissement ? Parlons-en maintenant" />
   <Faq items={FAQ} title="Vos questions de professionnels" />
   <FinalCta title="Un problème de nuisibles dans votre établissement ?" />
 </Base>
