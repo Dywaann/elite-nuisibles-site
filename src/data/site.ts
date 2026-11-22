@@ -43,14 +43,15 @@ export const NAV: NavItem[] = [
   { label: 'Blog', to: '/blog/' },
 ];
 
-// Références clients du bandeau défilant. Renseigner `logo` (fichier dans public/images/clients/)
-// dès que le logo officiel est fourni : il remplacera automatiquement le nom en texte.
-export const CLIENTS: { name: string; logo?: string }[] = [
-  { name: 'Century 21' },
-  { name: 'Franprix' },
-  { name: 'G20' },
-  { name: 'Hôtel F1' },
-  { name: 'Monoprix' },
+// Références clients du bandeau défilant. Les logos sont dans public/images/clients/
+// et s'affichent en noir transparent (voir .clients dans global.css).
+// h = hauteur d'affichage en pixels, w/hh = dimensions d'origine du fichier (pour réserver la place).
+export const CLIENTS: { name: string; logo?: string; h?: number; w?: number; hh?: number }[] = [
+  { name: 'Century 21', logo: '/images/clients/century-21.svg', h: 22, w: 170, hh: 20 },
+  { name: 'Franprix', logo: '/images/clients/franprix.png', h: 38, w: 644, hh: 133 },
+  { name: 'G20', logo: '/images/clients/g20.png', h: 56, w: 338, hh: 179 },
+  { name: 'Hôtel F1', logo: '/images/clients/hotel-f1.png', h: 52, w: 912, hh: 264 },
+  { name: 'Monoprix', logo: '/images/clients/monoprix.svg', h: 26, w: 539, hh: 75 },
 ];
 
 // Les 4 chiffres validés pour l'accueil (le premier est mis en avant).

@@ -10,7 +10,11 @@ const loop = [...CLIENTS, ...CLIENTS];
       {[0, 1].map((copy) => (
         <ul class="marquee-group" aria-hidden={copy === 1 ? 'true' : undefined}>
           {loop.map((c) => (
-            <li class="client">{c.logo ? <img src={c.logo} alt={c.name} loading="lazy" /> : c.name}</li>
+            <li class="client">
+              {c.logo && c.h && c.w && c.hh
+                ? <img src={c.logo} alt={c.name} width={Math.round((c.w * c.h) / c.hh)} height={c.h} decoding="async" />
+                : c.name}
+            </li>
           ))}
         </ul>
       ))}
