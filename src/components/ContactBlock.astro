@@ -16,7 +16,7 @@ const { source, title = 'Obtenir un devis immédiat' } = Astro.props;
         <div class="glass feature"><span class="ico"><Icon name="mail" size={22} /></span><div><h3 style="font-size:14px;font-weight:600;color:var(--muted)">Email</h3><p style="margin:0"><a href={`mailto:${SITE.email}`} class="one-line email" style="font-weight:700;color:var(--navy)">{SITE.email}</a></p></div></div>
         <div class="glass feature"><span class="ico"><Icon name="clock" size={22} /></span><div><h3 style="font-size:14px;font-weight:600;color:var(--muted)">Disponibilité</h3><p style="margin:0;font-weight:700;color:var(--navy)">7j/7, 24h/24</p></div></div>
         <div class="glass feature"><span class="ico"><Icon name="pin" size={22} /></span><div><h3 style="font-size:14px;font-weight:600;color:var(--muted)">Siège</h3><p style="margin:0;font-weight:700;color:var(--navy)">{SITE.address.street}, {SITE.address.zip} {SITE.address.city}</p></div></div>
-        <p class="muted" style="font-size:15px">Une question ? Nos experts vous conseillent gratuitement par téléphone.</p>
+        <p class="muted note-c" style="font-size:15px">Une question ? Nos experts vous conseillent gratuitement par téléphone.</p>
       </div>
       <div style="flex:1.2 1 380px;min-width:0"><LeadForm id="devis" source={source} title={title} subtitle="Un expert vous rappelle sous peu." button="J'obtiens mon devis maintenant" message /></div>
     </div>

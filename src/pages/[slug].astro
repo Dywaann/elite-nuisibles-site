@@ -115,7 +115,7 @@ const others = post ? ARTICLES.filter((a) => a.slug !== post.slug).slice(0, 3) :
     <TrustStrip />
 
     <section class="section">
-      <div class="container narrow stack reveal" style="gap:18px">
+      <div class="container narrow stack txt-c reveal" style="gap:18px">
         <h2 class="h2">{pest.intro.title}</h2>
         <div class="prose">{pest.intro.paragraphs.map((p) => <p>{p}</p>)}</div>
       </div>
@@ -159,7 +159,7 @@ const others = post ? ARTICLES.filter((a) => a.slug !== post.slug).slice(0, 3) :
           <figure class="media reveal" style="flex:1 1 340px;aspect-ratio:4/5;max-height:560px">
             <img src={pest.sideImage} alt={pest.sideAlt} loading="lazy" width="1200" height="1500" />
           </figure>
-          <div class="stack reveal" style="flex:1.4 1 420px;gap:14px">
+          <div class="stack txt-c reveal" style="flex:1.4 1 420px;gap:14px">
             <span class="eyebrow">FAQ</span>
             <h2 class="h2">Vos questions sur {pest.serviceName.toLowerCase()}</h2>
             <div class="faq" style="margin-top:8px">

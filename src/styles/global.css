@@ -355,6 +355,20 @@ p, li { text-wrap: pretty; }
 .trust-strip { gap: 32px; margin-top: 40px; }
 .dark .rating { color: #fff; }
 
+/* ---------- Centrage général : titres, accroches et appels à l'action ---------- */
+.section-head { align-items: center; text-align: center; }
+.cta-row { justify-content: center; }
+.review-head { flex-direction: column; align-items: center; text-align: center; }
+.review-head .stack { align-items: center; }
+.txt-c { align-items: center; text-align: center; }
+.txt-c > .prose, .txt-c > .lead, .txt-c > .h2 { max-width: 760px; }
+.txt-c > .faq, .txt-c > blockquote { align-self: stretch; }
+.txt-c > .faq { text-align: left; }
+.figures .tile { align-items: center; text-align: center; }
+.cta-band { flex-direction: column; justify-content: center; text-align: center; }
+.cta-band .txt { align-items: center; }
+.note-c { text-align: center; }
+
 /* ---------- Allègement mobile ---------- */
 @media (max-width: 719px) {
   .m-hide { display: none !important; }
