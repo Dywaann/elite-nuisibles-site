@@ -265,6 +265,8 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 28px 60px rgba(5, 58, 
 
 /* ---------- En-tête de page intérieure ---------- */
 .page-head { padding-top: 40px; padding-bottom: 8px; display: flex; flex-direction: column; gap: 16px; }
+.page-head.centered { align-items: center; text-align: center; padding-top: 48px; }
+.page-head.centered .crumbs, .page-head.centered .cta-row { justify-content: center; }
 .page-head .h1.compact { font-size: clamp(28px, 3.6vw, 42px); line-height: 1.14; }
 .crumbs { display: flex; flex-wrap: wrap; gap: 6px; font-size: 14px; font-weight: 600; color: var(--muted); }
 .crumbs a { color: var(--muted); text-underline-offset: 3px; }
@@ -388,6 +390,8 @@ p, li { text-wrap: pretty; }
   .feature { padding: 18px; gap: 12px; }
   .feature .ico { width: 40px; height: 40px; border-radius: 12px; }
   .footer .one-line { font-size: 13.5px; }
+  .article-body table { display: block; overflow-x: auto; font-size: 14px; }
+  .page-head.centered { padding-top: 32px; }
   .rating { font-size: 13px; gap: 8px; }
   .rating .stars { width: 84px; height: 16px; }
   .zone { flex-direction: row !important; align-items: center; padding: 12px !important; gap: 10px !important; border-radius: 16px; }

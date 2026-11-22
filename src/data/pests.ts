@@ -70,7 +70,7 @@ export const PESTS: Record<string, PestPageData> = {
     ],
     serviceName: 'Dératisation',
     formService: 'Dératisation - Rats et souris',
-    related: ['hantavirus-rats-idf', 'deratisation-pourquoi-les-methodes-fait-maison-sont-inefficaces', 'deratisation-durable-idf'],
+    related: ['prix-deratisation-paris', 'souris-maison-hiver', 'hantavirus-rats-idf'],
     priceFrom: '109 €',
   },
   punaises: {
@@ -119,7 +119,7 @@ export const PESTS: Record<string, PestPageData> = {
     ],
     serviceName: 'Traitement punaises de lit',
     formService: 'Désinsectisation - Punaises de lit',
-    related: ['punaises-de-lit-comment-les-detecter-et-sen-debarrasser-efficacement', 'punaises-de-lit-mythes-et-verites', 'limportance-de-la-desinfection-apres-une-infestation'],
+    related: ['punaises-de-lit-locataire-proprietaire-qui-paie', 'preparer-logement-traitement-punaises-de-lit', 'punaises-de-lit-comment-les-detecter-et-sen-debarrasser-efficacement'],
     priceFrom: '150 €',
   },
   cafards: {
@@ -168,7 +168,7 @@ export const PESTS: Record<string, PestPageData> = {
     ],
     serviceName: 'Désinsectisation cafards et blattes',
     formService: 'Désinsectisation - Cafards et blattes',
-    related: ['infestation-cafards-logement', 'prevention-des-infestations-de-cafards-dans-les-immeubles-anciens-elite-nuisibles', 'proteger-restaurant-nuisibles-idf'],
+    related: ['cafards-immeuble-copropriete-qui-doit-agir', 'infestation-cafards-logement', 'restaurant-nuisibles-controle-hygiene'],
     priceFrom: '160 €',
   },
   fourmis: {
@@ -216,7 +216,7 @@ export const PESTS: Record<string, PestPageData> = {
     ],
     serviceName: 'Désinsectisation fourmis',
     formService: 'Désinsectisation - Fourmis',
-    related: ['invasion-de-fourmis-dans-la-maison-causes-risques-et-solutions-durables', 'comment-se-debarrasser-des-nuisibles-a-la-maison-conseils-pratiques', 'methodes-ecologiques-nuisibles-idf'],
+    related: [],
     priceFrom: '160 €',
   },
 };
