@@ -1,5 +1,11 @@
+// Données générales du site : coordonnées, navigation, avis, zones, tarifs, FAQ.
+// Modifier ici pour mettre à jour toutes les pages d'un coup.
+
 export const SITE = {
   name: 'Elite Nuisibles IDF',
+  brand: 'Élite Nuisibles Île-de-France',
+  legalName: 'Élite Nuisibles SAS',
+  siren: '991 507 831',
   url: 'https://elite-nuisibles-idf.fr',
   phone: '01 79 75 30 40',
   phoneHref: 'tel:+33179753040',
@@ -8,13 +14,20 @@ export const SITE = {
   address: { street: '34 Rue de Bretagne', zip: '94000', city: 'Créteil' },
   rating: { value: '4,98', count: 169, schemaValue: '4.98' },
   web3formsKey: 'af7c4c07-8a63-4809-bec5-fde132be2be4',
-  logo: '/images/logo-elite-nuisibles.webp',
+  logo: '/images/logo-elite-nuisibles-horizontal.webp',
+  logoPng: '/images/logo-elite-nuisibles.png',
   ogImage: '/images/hero-techniciens-traitement-nuisibles.webp',
+  // Balises de suivi reprises à l'identique du site précédent.
+  gtmId: 'GTM-PQ4N9D3H',
+  ga4Id: 'G-3HEKY02K7H',
+  clarityId: 'ut66nbtboi',
+  googleSiteVerification: 'znHYazICvjj5Ux4lXmSrEqZUKYLtT0PVUO4cwuuqvZ8',
 };
 
-export type NavItem = { label: string; to: string; children?: { label: string; to: string; desc?: string }[] };
+export type NavChild = { label: string; to: string; desc?: string };
+export type NavItem = { label: string; to: string; children?: NavChild[] };
 
-export const SERVICES_NAV = [
+export const SERVICES_NAV: NavChild[] = [
   { label: 'Dératisation rats & souris', to: '/deratisation-paris/', desc: 'Rats, souris, mulots' },
   { label: 'Punaises de lit', to: '/punaises-de-lit/', desc: 'Chimique, vapeur, cryogénie' },
   { label: 'Cafards & blattes', to: '/desinsectisation-cafards-blattes-idf/', desc: 'Gel, pulvérisation, suivi' },
@@ -23,12 +36,44 @@ export const SERVICES_NAV = [
 ];
 
 export const NAV: NavItem[] = [
-  { label: 'Accueil', to: '/' },
-  { label: 'Nos services', to: '/services-lutte-nuisibles-paris/', children: SERVICES_NAV },
-  { label: 'Pour les pros', to: '/professionnels-deratisation-paris/' },
-  { label: 'Nos tarifs', to: '/tarifs-deratisation-desinsectisation-idf/' },
+  { label: 'Nuisibles', to: '/services-lutte-nuisibles-paris/', children: SERVICES_NAV },
+  { label: 'Professionnels', to: '/professionnels-deratisation-paris/' },
+  { label: 'Tarifs', to: '/tarifs-deratisation-desinsectisation-idf/' },
   { label: 'Qui sommes-nous ?', to: '/qui-sommes-nous/' },
   { label: 'Blog', to: '/blog/' },
+];
+
+// Références clients du bandeau défilant. Renseigner `logo` (fichier dans public/images/clients/)
+// dès que le logo officiel est fourni : il remplacera automatiquement le nom en texte.
+export const CLIENTS: { name: string; logo?: string }[] = [
+  { name: 'Century 21' },
+  { name: 'Franprix' },
+  { name: 'G20' },
+  { name: 'Hôtel F1' },
+  { name: 'Monoprix' },
+];
+
+// Les 4 chiffres validés pour l'accueil (le premier est mis en avant).
+export const KEY_FIGURES = [
+  { value: '0 €', label: 'de déplacement et de diagnostic', highlight: true },
+  { value: "Moins d'1h", label: 'pour intervenir à Paris et en petite couronne' },
+  { value: '20 min', label: 'pour recevoir votre devis' },
+  { value: '7j/7', label: 'et téléphone ouvert 24h/24' },
+];
+
+export const ENGAGEMENTS = [
+  { icon: 'clock', title: "Intervention en moins d'1h", text: 'Sur Paris et la petite couronne, 7j/7.' },
+  { icon: 'tag', title: 'Prix fixes, sans surprise', text: 'Annoncés après le diagnostic, avant toute intervention. Paiement échelonné possible.' },
+  { icon: 'shield', title: 'Certifiés Certibiocide', text: 'Techniciens certifiés, entreprise assurée en responsabilité civile professionnelle.' },
+  { icon: 'heart', title: 'Sans danger pour vos proches', text: 'Produits homologués et consignes claires pour les enfants et les animaux.' },
+  { icon: 'refresh', title: 'Résultat garanti', text: 'Retour gratuit si les nuisibles reviennent pendant la période de garantie.' },
+  { icon: 'eyeoff', title: 'Intervention discrète', text: 'Véhicules non marqués, passages possibles tôt le matin ou le soir.' },
+];
+
+export const HOME_SERVICES = [
+  { title: 'Dératisation', text: 'Rats, souris, mulots. Diagnostic, traitement et suivi.', to: '/deratisation-paris/', from: '109 €' },
+  { title: 'Punaises de lit', text: 'Traitement chimique, vapeur sèche à 180 °C ou cryogénisation.', to: '/punaises-de-lit/', from: '150 €' },
+  { title: 'Cafards et blattes', text: 'Gel appât et pulvérisation, traitement des nids inclus.', to: '/desinsectisation-cafards-blattes-idf/', from: '160 €' },
 ];
 
 export const ZONES = [
@@ -42,6 +87,7 @@ export const ZONES = [
   { name: "Val-d'Oise", code: '95', cities: 'Argenteuil, Cergy, Sarcelles, Pontoise' },
 ];
 
+// Avis Google repris du site précédent (textes d'origine).
 export const REVIEWS = [
   { name: 'Manisekar Indira', date: 'Décembre 2025', text: "Intervention rapide et efficace. L'équipe d'Élite Nuisibles a identifié le problème en quelques minutes et a traité complètement l'infestation. Techniciens sérieux et discrets ! Je recommande sans hésiter." },
   { name: 'Marcel Op', date: 'Novembre 2025', text: "Merci à cette société d'être intervenue dans mon restaurant pour une désinfection complète, rapide et surtout efficace." },

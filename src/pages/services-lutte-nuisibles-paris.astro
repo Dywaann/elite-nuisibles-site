@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import PageHead from '../components/PageHead.astro';
+import CallButton from '../components/CallButton.astro';
+import Reviews from '../components/Reviews.astro';
+import Faq from '../components/Faq.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { GENERAL_FAQ, PESTS_ALL } from '../data/site';
+import { breadcrumbLd, localBusinessLd } from '../lib/seo';
+
+const path = '/services-lutte-nuisibles-paris/';
+const crumbs = [{ name: 'Accueil', path: '/' }, { name: 'Nos services', path }];
+const BIG = [
+  { icon: 'target', title: 'Dératisation', text: 'Élimination rapide des rats, souris et mulots, avec prévention durable contre les infestations.', to: '/deratisation-paris/', img: '/images/rat-piege-deratisation.webp' },
+  { icon: 'bug', title: 'Désinsectisation', text: 'Éradication efficace des cafards, punaises de lit, fourmis, puces et mites.', to: '/desinsectisation-cafards-blattes-idf/', img: '/images/traitement-insecticide-cuisine.webp' },
+  { icon: 'shield', title: 'Désinfection', text: 'Désinfection complète après infestation pour retrouver un environnement sain et sécurisé.', to: '/demander-un-devis/', img: '/images/traitement-vapeur-punaises.webp' },
+];
+const PROMISES = [
+  { icon: 'shield', title: 'Qualité et expertise', text: 'Des services de haute qualité grâce à une équipe de techniciens certifiés et des méthodes éprouvées.' },
+  { icon: 'clock', title: 'Réactivité et disponibilité', text: 'Disponibles 24h/24 et 7j/7 pour répondre à vos urgences avec une solution rapide et efficace.' },
+  { icon: 'building', title: 'Particuliers et pros', text: 'Logements, copropriétés, restaurants, hôtels, commerces et bureaux : un protocole adapté à chaque lieu.' },
+];
+---
+<Base
+  title="Services lutte nuisibles Paris & IDF | Elite Nuisibles IDF"
+  description="Dératisation, désinsectisation, punaises de lit et désinfection à Paris et en Île-de-France. Intervention en moins d’1h, 7j/7, déplacement et devis gratuits."
+  path={path}
+  jsonLd={[localBusinessLd(), breadcrumbLd(crumbs)]}
+>
+  <PageHead crumbs={crumbs} title="Nos services de lutte contre les nuisibles" intro="Intervention 7j/7 en moins d'1h. Déplacement et devis 100% gratuits, prix fixes et transparence garantie.">
+    <div class="cta-row"><CallButton /><a class="btn btn-ghost" href="/demander-un-devis/">Demander un devis gratuit</a></div>
+  </PageHead>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3">
+        {BIG.map((s) => (
+          <a class="glass post-card reveal" href={s.to}>
+            <div class="thumb"><img src={s.img} alt="" loading="lazy" width="640" height="360" /></div>
+            <div class="body">
+              <h2 class="h3" style="font-size:22px">{s.title}</h2>
+              <p>{s.text}</p>
+              <span class="link-arrow" style="margin-top:auto">Découvrir <Icon name="arrow" size={18} /></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Tous les nuisibles</span>
+        <h2 class="h2 center">Une solution adaptée à chaque nuisible</h2>
+        <p class="lead center">Notre équipe utilise des techniques avancées et des produits professionnels homologués pour garantir l'efficacité de chaque intervention.</p>
+      </div>
+      <div class="grid grid-3">
+        {PESTS_ALL.map((p) => (
+          <a class="glass card reveal" href={p.to} style="border-radius:22px;padding:22px">
+            <h3 class="h3" style="font-size:18px">{p.name}</h3>
+            <p class="muted" style="font-size:15px">{p.desc}</p>
+            <span class="more">En savoir plus <Icon name="arrow" size={18} /></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section-head center reveal"><span class="eyebrow">Notre engagement</span><h2 class="h2 center">Qualité, réactivité, sécurité</h2></div>
+      <div class="grid grid-3">
+        {PROMISES.map((e) => (
+          <div class="glass feature reveal"><span class="ico"><Icon name={e.icon} size={22} /></span><div><h3>{e.title}</h3><p>{e.text}</p></div></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Reviews />
+  <Faq items={GENERAL_FAQ} />
+  <FinalCta />
+</Base>

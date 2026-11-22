@@ -1,0 +1,14 @@
+---
+import CallButton from './CallButton.astro';
+import { SITE } from '../data/site';
+interface Props { title?: string; text?: string }
+const { title = 'Un nuisible chez vous ?', text = 'Conseil immédiat au téléphone, 24h/24 et 7j/7, partout en Île-de-France.' } = Astro.props;
+---
+<section class="section">
+  <div class="container">
+    <div class="dark cta-band reveal">
+      <div class="txt"><h2 class="h2">{title}</h2><p class="lead">{text}</p></div>
+      <CallButton label={SITE.phone} />
+    </div>
+  </div>
+</section>

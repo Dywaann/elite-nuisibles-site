@@ -1,0 +1,36 @@
+---
+// Avis Google en défilement horizontal infini (pause au survol).
+import Stars from './Stars.astro';
+import { REVIEWS, SITE } from '../data/site';
+interface Props { title?: string }
+const { title = 'Ce que disent nos clients' } = Astro.props;
+---
+<section id="avis" class="section reviews" aria-labelledby="titre-avis">
+  <div class="container">
+    <div class="review-head reveal">
+      <div class="stack" style="gap:10px">
+        <span class="eyebrow">Avis Google</span>
+        <h2 id="titre-avis" class="h2">{title}</h2>
+      </div>
+      <div class="glass score">
+        <b>{SITE.rating.value}</b>
+        <span><Stars label={`Note ${SITE.rating.value} sur 5`} />{SITE.rating.count} avis sur Google</span>
+      </div>
+    </div>
+    <div class="marquee" style="--marquee-s: 90s">
+      <div class="marquee-track">
+        {[0, 1].map((copy) => (
+          <div class="marquee-group" aria-hidden={copy === 1 ? 'true' : undefined}>
+            {REVIEWS.map((r) => (
+              <article class="glass review">
+                <Stars label="5 étoiles" />
+                <p>{r.text}</p>
+                <footer><b>{r.name}</b><span>Avis Google · {r.date.toLowerCase()}</span></footer>
+              </article>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

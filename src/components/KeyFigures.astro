@@ -1,0 +1,14 @@
+---
+import { KEY_FIGURES } from '../data/site';
+---
+<section class="dark reveal" aria-labelledby="titre-chiffres">
+  <div class="section-head" style="margin-bottom:28px">
+    <span class="eyebrow">Élite Nuisibles en chiffres</span>
+    <h2 id="titre-chiffres" class="h2">Des engagements que l'on peut vérifier</h2>
+  </div>
+  <div class="grid grid-2" style="gap:16px">
+    {KEY_FIGURES.map((k) => (
+      <div class:list={['tile', k.highlight && 'hl']}><b>{k.value}</b><span>{k.label}</span></div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,55 @@
+---
+import Icon from './Icon.astro';
+import { NAV, SITE } from '../data/site';
+const path = Astro.url.pathname;
+---
+<div class="urgence">
+  <div class="container">
+    <span class="tag"><i aria-hidden="true"></i>Urgence nuisibles 24h/24</span>
+    <span class="long">Un technicien chez vous en moins d'1h à Paris et en petite couronne, 7j/7</span>
+    <a href={SITE.phoneHref} data-cta="appel">{SITE.phone}</a>
+  </div>
+</div>
+<header class="header">
+  <div class="container">
+    <div class="glass header-bar">
+      <a class="brand" href="/" aria-label={`${SITE.brand}, accueil`}>
+        <img src={SITE.logo} alt={SITE.brand} width="583" height="205" />
+      </a>
+      <nav aria-label="Navigation principale">
+        <ul class="nav">
+          {NAV.map((item) => (
+            <li>
+              <a href={item.to} aria-current={path === item.to ? 'page' : undefined}>
+                {item.label}{item.children && <Icon name="chevron" size={16} />}
+              </a>
+              {item.children && (
+                <div class="glass submenu">
+                  {item.children.map((c) => <a href={c.to}>{c.label}{c.desc && <small>{c.desc}</small>}</a>)}
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a href={SITE.phoneHref} class="btn btn-call" data-cta="appel" aria-label={`Appeler le ${SITE.phone}`}>
+          <Icon name="phone" size={18} /><span>{SITE.phone}</span>
+        </a>
+        <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile" data-burger>
+          <Icon name="menu" size={22} />
+        </button>
+      </div>
+    </div>
+    <nav id="menu-mobile" class="glass mobile-nav" aria-label="Menu mobile">
+      {NAV.map((item) => (
+        <>
+          <a href={item.to}>{item.label}</a>
+          {item.children && item.children.slice(0, -1).map((c) => <a class="sub" href={c.to}>{c.label}</a>)}
+        </>
+      ))}
+      <a href="/contact-elite-nuisibles-idf/">Contact</a>
+      <a href="/demander-un-devis/">Demander un devis</a>
+    </nav>
+  </div>
+</header>

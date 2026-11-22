@@ -1,0 +1,128 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { SITE } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  noindex?: boolean;
+  type?: 'website' | 'article';
+  jsonLd?: object[];
+  preloadImage?: string;
+}
+const { title, description, path, image, noindex = false, type = 'website', jsonLd = [], preloadImage } = Astro.props;
+const url = `${SITE.url}${path}`;
+const img = `${SITE.url}${image || SITE.ogImage}`;
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url} />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
+    <meta name="theme-color" content="#053a61" />
+    <meta name="google-site-verification" content={SITE.googleSiteVerification} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={img} />
+    <meta name="twitter:card" content="summary_large_image" />
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
+    {jsonLd.map((ld) => <script type="application/ld+json" set:html={JSON.stringify(ld)} />)}
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <!-- Google Tag Manager -->
+    <script is:inline define:vars={{ gtm: SITE.gtmId }}>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',gtm);</script>
+    <!-- Google Analytics 4 -->
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${SITE.ga4Id}`}></script>
+    <script is:inline define:vars={{ ga4: SITE.ga4Id }}>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config',ga4);</script>
+    <!-- Microsoft Clarity -->
+    <script is:inline define:vars={{ clarity: SITE.clarityId }}>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script",clarity);</script>
+  </head>
+  <body>
+    <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${SITE.gtmId}`} height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+    <a class="skip" href="#contenu">Aller au contenu principal</a>
+    <Header />
+    <main id="contenu">
+      <slot />
+    </main>
+    <Footer />
+    <div class="callbar">
+      <a href={SITE.phoneHref} class="btn btn-call" data-cta="appel"><Icon name="phone" size={18} /><span>Appeler</span></a>
+      <a href="/demander-un-devis/" class="btn btn-navy">Être rappelé</a>
+    </div>
+    <script>
+      // Menu mobile
+      const burger = document.querySelector<HTMLButtonElement>('[data-burger]');
+      const menu = document.getElementById('menu-mobile');
+      burger?.addEventListener('click', () => {
+        const open = menu?.classList.toggle('open') ?? false;
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      });
+
+      // Apparition des blocs au défilement
+      const items = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(
+          (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }),
+          { rootMargin: '0px 0px -8% 0px' },
+        );
+        items.forEach((el) => io.observe(el));
+      } else {
+        items.forEach((el) => el.classList.add('in'));
+      }
+
+      // Suivi des clics d'appel (GTM / Google Ads)
+      const w = window as any;
+      document.querySelectorAll('[data-cta="appel"]').forEach((a) =>
+        a.addEventListener('click', () => w.dataLayer?.push({ event: 'click_to_call', page: location.pathname })),
+      );
+
+      // Formulaires de rappel / devis
+      document.querySelectorAll<HTMLFormElement>('form[data-lead]').forEach((form) => {
+        form.addEventListener('submit', async (ev) => {
+          ev.preventDefault();
+          const fd = new FormData(form);
+          const mark = (name: string, bad: boolean) => {
+            const f = form.querySelector(`[data-field="${name}"]`);
+            f?.classList.toggle('invalid', bad);
+            f?.querySelector('input')?.setAttribute('aria-invalid', String(bad));
+          };
+          const name = String(fd.get('name') || '').trim();
+          const phone = String(fd.get('phone') || '').replace(/[\s.-]/g, '');
+          const cp = String(fd.get('postal_code') || '').trim();
+          const bad = [name.length < 2, !/^(\+33|0033|0)[1-9]\d{8}$/.test(phone), !/^\d{5}$/.test(cp)];
+          mark('name', bad[0]); mark('phone', bad[1]); mark('postal_code', bad[2]);
+          if (bad.some(Boolean)) { form.querySelector<HTMLInputElement>('.invalid input')?.focus(); return; }
+          const btn = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+          const label = btn.textContent;
+          btn.disabled = true; btn.textContent = 'Envoi en cours…';
+          form.classList.remove('failed');
+          try {
+            const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
+            const json = await res.json();
+            if (!json.success) throw new Error('envoi refusé');
+            w.dataLayer?.push({ event: 'generate_lead', form_source: form.dataset.source, service: form.dataset.service });
+            window.location.href = '/page-de-remerciement/';
+          } catch {
+            form.classList.add('failed');
+            btn.disabled = false; btn.textContent = label;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

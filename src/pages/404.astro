@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import CallButton from '../components/CallButton.astro';
+---
+<Base title="Page introuvable | Elite Nuisibles IDF" description="Cette page n’existe pas ou a été déplacée." path="/404/" noindex>
+  <section class="section">
+    <div class="container narrow">
+      <div class="glass card center" style="align-items:center;padding:56px 28px;gap:14px">
+        <p class="price" style="font-size:72px">404</p>
+        <h1 class="h2">Cette page est introuvable</h1>
+        <p class="lead">Elle a peut-être été déplacée. Un nuisible à traiter ? Nous restons joignables 7j/7.</p>
+        <div class="cta-row center"><a class="btn btn-navy" href="/">Retour à l'accueil</a><CallButton /></div>
+      </div>
+    </div>
+  </section>
+</Base>

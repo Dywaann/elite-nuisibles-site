@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import ContactBlock from '../components/ContactBlock.astro';
+import Zones from '../components/Zones.astro';
+import { breadcrumbLd, localBusinessLd } from '../lib/seo';
+const path = '/contact-elite-nuisibles-idf/';
+const crumbs = [{ name: 'Accueil', path: '/' }, { name: 'Contact', path }];
+---
+<Base
+  title="Contact Elite Nuisibles IDF | 01 79 75 30 40"
+  description="Contactez Elite Nuisibles IDF pour une intervention efficace contre les nuisibles en Île-de-France. Dératisation et désinsectisation rapides, 7j/7."
+  path={path}
+  jsonLd={[localBusinessLd(), breadcrumbLd(crumbs)]}
+>
+  <PageHead crumbs={crumbs} title="Contactez-nous" intro="Les artisans les mieux notés d'Île-de-France sont disponibles maintenant." />
+  <ContactBlock source="Site principal - Contact" />
+  <Zones />
+</Base>

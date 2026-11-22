@@ -1,0 +1,9 @@
+---
+import Icon from './Icon.astro';
+import { SITE } from '../data/site';
+interface Props { label?: string; large?: boolean; class?: string }
+const { label = `Appeler le ${SITE.phone}`, large = false, class: cls = '' } = Astro.props;
+---
+<a href={SITE.phoneHref} class:list={['btn btn-call', large && 'btn-lg', cls]} data-cta="appel">
+  <Icon name="phone" size={large ? 22 : 18} /><span>{label}</span>
+</a>

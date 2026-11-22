@@ -1,0 +1,48 @@
+---
+import Icon from './Icon.astro';
+import { SERVICES_NAV, SITE } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container">
+    <div class="glass footer-grid">
+      <div>
+        <a class="brand" href="/" aria-label={`${SITE.brand}, accueil`}>
+          <img src={SITE.logo} alt={SITE.brand} width="583" height="205" loading="lazy" />
+        </a>
+        <p style="margin-top:14px;max-width:300px">Dératisation, désinsectisation et traitement des punaises de lit à Paris et dans toute l'Île-de-France. Entreprise certifiée Certibiocide.</p>
+      </div>
+      <div>
+        <h2>Nos services</h2>
+        <ul>
+          {SERVICES_NAV.map((s) => <li><a href={s.to}>{s.label}</a></li>)}
+          <li><a href="/professionnels-deratisation-paris/">Professionnels</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>L'entreprise</h2>
+        <ul>
+          <li><a href="/qui-sommes-nous/">Qui sommes-nous ?</a></li>
+          <li><a href="/tarifs-deratisation-desinsectisation-idf/">Nos tarifs</a></li>
+          <li><a href="/blog/">Blog et conseils</a></li>
+          <li><a href="/contact-elite-nuisibles-idf/">Contact</a></li>
+          <li><a href="/demander-un-devis/">Demander un devis</a></li>
+          <li><a href="/cgu/">Mentions légales, CGU et CGV</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href={SITE.phoneHref} data-cta="appel" style="font-weight:800;color:var(--navy)"><Icon name="phone" size={16} /> {SITE.phone}</a></li>
+          <li><a href={`mailto:${SITE.email}`} style="word-break:break-all"><Icon name="mail" size={16} /> {SITE.email}</a></li>
+          <li><span style="display:inline-flex;gap:8px;align-items:center;min-height:36px"><Icon name="clock" size={16} /> Disponible 7j/7 · 24h/24</span></li>
+          <li><span style="display:inline-flex;gap:8px;align-items:flex-start;padding-top:6px"><Icon name="pin" size={16} /> {SITE.address.street}, {SITE.address.zip} {SITE.address.city}</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© {year} {SITE.legalName} · SIREN {SITE.siren}</span>
+      <span>Intervention dans toute l'Île-de-France</span>
+    </div>
+  </div>
+</footer>
