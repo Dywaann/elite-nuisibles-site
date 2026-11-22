@@ -1,0 +1,19 @@
+---
+// Bandeau défilant "Ils nous ont fait confiance" (logos en noir transparent).
+import { CLIENTS } from '../data/site';
+const loop = [...CLIENTS, ...CLIENTS];
+---
+<section class="glass clients reveal" aria-labelledby="titre-clients">
+  <h2 id="titre-clients" class="eyebrow">Ils nous ont fait confiance</h2>
+  <div class="marquee" style="--marquee-s: 36s">
+    <div class="marquee-track">
+      {[0, 1].map((copy) => (
+        <ul class="marquee-group" aria-hidden={copy === 1 ? 'true' : undefined}>
+          {loop.map((c) => (
+            <li class="client">{c.logo ? <img src={c.logo} alt={c.name} loading="lazy" /> : c.name}</li>
+          ))}
+        </ul>
+      ))}
+    </div>
+  </div>
+</section>

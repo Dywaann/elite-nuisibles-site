@@ -1,0 +1,234 @@
+---
+// Pages à la racine du site : pages nuisibles (src/data/pests.ts) et articles du blog.
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Stars from '../components/Stars.astro';
+import CallButton from '../components/CallButton.astro';
+import LeadForm from '../components/LeadForm.astro';
+import Reviews from '../components/Reviews.astro';
+import Faq from '../components/Faq.astro';
+import FinalCta from '../components/FinalCta.astro';
+import PostCard from '../components/PostCard.astro';
+import PageHead from '../components/PageHead.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import ConversionBlock from '../components/ConversionBlock.astro';
+import Engagements from '../components/Engagements.astro';
+
+import { PESTS, type PestPageData } from '../data/pests';
+import { SERVICES_NAV, SITE } from '../data/site';
+import { ARTICLES, ARTICLES_BY_SLUG, formatDateFr, type Article } from '../lib/articles';
+import { breadcrumbLd, faqLd, localBusinessLd } from '../lib/seo';
+
+export function getStaticPaths() {
+  const pests = Object.values(PESTS).map((pest) => ({
+    params: { slug: pest.path.replace(/\//g, '') },
+    props: { kind: 'pest' as const, pest },
+  }));
+  const posts = ARTICLES.map((post) => ({ params: { slug: post.slug }, props: { kind: 'post' as const, post } }));
+  return [...pests, ...posts];
+}
+
+type Props = { kind: 'pest'; pest: PestPageData } | { kind: 'post'; post: Article };
+const props = Astro.props as Props;
+const pest = props.kind === 'pest' ? props.pest : null;
+const post = props.kind === 'post' ? props.post : null;
+
+const pestCrumbs = pest && [
+  { name: 'Accueil', path: '/' },
+  { name: 'Nos services', path: '/services-lutte-nuisibles-paris/' },
+  { name: pest.serviceName, path: pest.path },
+];
+const serviceLd = pest && {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: pest.serviceName,
+  serviceType: pest.serviceName,
+  description: pest.seoDescription,
+  url: `${SITE.url}${pest.path}`,
+  areaServed: { '@type': 'AdministrativeArea', name: 'Île-de-France' },
+  provider: { '@id': `${SITE.url}/#business` },
+  offers: { '@type': 'Offer', priceCurrency: 'EUR', price: pest.priceFrom.replace(/[^\d]/g, ''), description: `À partir de ${pest.priceFrom}` },
+};
+const related = pest ? pest.related.map((s) => ARTICLES_BY_SLUG[s]).filter(Boolean) : [];
+
+const postPath = post && `/${post.slug}/`;
+const postCrumbs = post && [
+  { name: 'Accueil', path: '/' },
+  { name: 'Blog', path: '/blog/' },
+  { name: post.title, path: postPath! },
+];
+const articleLd = post && {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.seoDescription,
+  image: `${SITE.url}${post.image}`,
+  datePublished: post.date,
+  dateModified: post.updatedIso || post.date,
+  mainEntityOfPage: `${SITE.url}${postPath}`,
+  author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  publisher: { '@type': 'Organization', name: SITE.name, logo: { '@type': 'ImageObject', url: `${SITE.url}${SITE.logoPng}` } },
+};
+const others = post ? ARTICLES.filter((a) => a.slug !== post.slug).slice(0, 3) : [];
+---
+{pest && pestCrumbs && (
+  <Base
+    title={pest.seoTitle}
+    description={pest.seoDescription}
+    path={pest.path}
+    image={pest.heroImage}
+    jsonLd={[localBusinessLd(), serviceLd!, faqLd(pest.faq), breadcrumbLd(pestCrumbs)]}
+    preloadImage={pest.heroImage}
+  >
+    <div class="container" style="padding-top:36px">
+      <div class="split" style="align-items:flex-start">
+        <div class="split-main stack" style="gap:20px">
+          <nav aria-label="Fil d'Ariane">
+            <ol class="crumbs">
+              {pestCrumbs.map((c, i) => <li>{i < pestCrumbs.length - 1 ? <a href={c.path}>{c.name}</a> : <span aria-current="page">{c.name}</span>}</li>)}
+            </ol>
+          </nav>
+          <span class="chip chip-navy" style="align-self:flex-start"><i class="dot" aria-hidden="true"></i>{pest.eyebrow}</span>
+          <h1 class="h1" style="font-size:clamp(32px,4.6vw,52px)">{pest.h1}</h1>
+          <p class="lead" style="font-weight:700;color:var(--navy)">{pest.tagline}</p>
+          <ul class="checklist">
+            {pest.bullets.map((b) => <li><Icon name="check" size={18} stroke={2.8} />{b}</li>)}
+          </ul>
+          <div class="cta-row">
+            <CallButton large />
+            <span class="price-from">à partir de <b class="price" style="font-size:30px">{pest.priceFrom}</b></span>
+          </div>
+          <a class="rating" href="#avis"><Stars label={`Note ${SITE.rating.value} sur 5`} />{SITE.rating.value}/5 sur {SITE.rating.count} avis Google</a>
+          <figure class="media" style="aspect-ratio:16/9;margin-top:8px">
+            <img src={pest.heroImage} alt={pest.heroAlt} width="1600" height="900" fetchpriority="high" />
+          </figure>
+        </div>
+        <div class="split-side sticky-side">
+          <LeadForm source={`Site principal - ${pest.serviceName}`} service={pest.formService} title="Devis gratuit en 20 minutes" subtitle="Un expert vous rappelle, sans engagement." button="J'obtiens mon devis" message />
+        </div>
+      </div>
+    </div>
+
+    <TrustStrip />
+
+    <section class="section">
+      <div class="container narrow stack reveal" style="gap:18px">
+        <h2 class="h2">{pest.intro.title}</h2>
+        <div class="prose">{pest.intro.paragraphs.map((p) => <p>{p}</p>)}</div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="section-head reveal"><span class="eyebrow">Les risques</span><h2 class="h2">{pest.dangers.title}</h2></div>
+        <div class="grid grid-3 m-scroll">
+          {pest.dangers.items.map((d) => (
+            <div class="glass feature reveal"><span class="ico"><Icon name="alert" size={22} /></span><div><h3>{d.title}</h3><p>{d.text}</p></div></div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="dark reveal">
+        <div class="section-head" style="margin-bottom:28px">
+          <span class="eyebrow">{pest.methods.eyebrow}</span>
+          <h2 class="h2">{pest.methods.title}</h2>
+          <p class="lead">{pest.methods.intro}</p>
+        </div>
+        <div class="grid grid-3 m-scroll" style="gap:16px">
+          {pest.methods.items.map((m) => (
+            <div class="tile">
+              {m.badge && <span class="badge">{m.badge}</span>}
+              <h3>{m.title}</h3>
+              <p>{m.text}</p>
+              <ul>{m.perks.map((k) => <li><Icon name="check" size={16} stroke={2.8} />{k}</li>)}</ul>
+            </div>
+          ))}
+        </div>
+        <div class="cta-row" style="margin-top:28px"><CallButton /><a class="btn btn-ghost" href="/tarifs-deratisation-desinsectisation-idf/">Voir tous les tarifs</a></div>
+      </section>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="split" style="align-items:center;gap:40px">
+          <figure class="media reveal" style="flex:1 1 340px;aspect-ratio:4/5;max-height:560px">
+            <img src={pest.sideImage} alt={pest.sideAlt} loading="lazy" width="1200" height="1500" />
+          </figure>
+          <div class="stack reveal" style="flex:1.4 1 420px;gap:14px">
+            <span class="eyebrow">FAQ</span>
+            <h2 class="h2">Vos questions sur {pest.serviceName.toLowerCase()}</h2>
+            <div class="faq" style="margin-top:8px">
+              {pest.faq.map((i) => <details class="glass"><summary>{i.q}<Icon name="chevron" /></summary><p>{i.a}</p></details>)}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {related.length > 0 && (
+      <section class="section" style="padding-top:0">
+        <div class="container">
+          <div class="section-head reveal"><span class="eyebrow">Pour aller plus loin</span><h2 class="h2">Nos conseils sur le sujet</h2></div>
+          <div class="grid grid-3 m-scroll">{related.map((p) => <PostCard post={p} />)}</div>
+        </div>
+      </section>
+    )}
+
+    <Engagements />
+    <Reviews />
+    <ConversionBlock source={`Site principal - ${pest.serviceName}`} service={pest.formService} />
+  </Base>
+)}
+
+{post && postCrumbs && (
+  <Base
+    title={post.seoTitle}
+    description={post.seoDescription}
+    path={postPath!}
+    image={post.image}
+    type="article"
+    jsonLd={[articleLd!, breadcrumbLd(postCrumbs), ...(post.faq.length ? [faqLd(post.faq)] : [])]}
+    preloadImage={post.image}
+  >
+    <PageHead crumbs={postCrumbs} title={post.title} compact>
+      <p class="muted" style="font-size:14px;font-weight:700;display:flex;flex-wrap:wrap;gap:6px 18px">
+        <span>{post.updatedIso ? `Mis à jour le ${formatDateFr(post.updatedIso)}` : `Publié le ${formatDateFr(post.date)}`}</span>
+        <span>{post.readingMinutes} min de lecture</span>
+        <span>Par l'équipe Elite Nuisibles IDF</span>
+      </p>
+    </PageHead>
+    <section class="section" style="padding-top:24px">
+      <div class="container">
+        <div class="split" style="align-items:flex-start">
+          <article class="glass article split-main">
+            <figure class="media" style="aspect-ratio:16/9;margin-bottom:28px"><img src={post.image} alt={post.title} width="1280" height="720" fetchpriority="high" /></figure>
+            <div class="article-body" set:html={post.html} />
+            <div class="dark" style="margin-top:36px;border-radius:24px;padding:28px">
+              <p class="h3" style="font-size:22px">Besoin d'un professionnel ?</p>
+              <p style="margin:8px 0 18px">Un technicien certifié chez vous en moins d'1h. Déplacement et devis gratuits.</p>
+              <CallButton label={SITE.phone} />
+            </div>
+          </article>
+          <aside class="split-side sticky-side">
+            <LeadForm id="devis-blog" source={`Blog - ${post.slug}`} service="Demande depuis le blog" title="Devis gratuit en 20 minutes" subtitle="Un expert vous rappelle, sans engagement." heading="p" />
+            <div class="glass card">
+              <p class="h3" style="font-size:16px">Nos services</p>
+              <ul class="stack" style="gap:2px">{SERVICES_NAV.map((s) => <li><a class="link-arrow" style="min-height:36px;font-size:15px" href={s.to}>{s.label}</a></li>)}</ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+    {post.faq.length > 0 && <Faq items={post.faq} />}
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="section-head reveal"><h2 class="h2">À lire aussi</h2></div>
+        <div class="grid grid-3 m-scroll">{others.map((p) => <PostCard post={p} />)}</div>
+      </div>
+    </section>
+    <Reviews />
+    <ConversionBlock source={`Blog - ${post.slug}`} service="Demande depuis le blog" />
+  </Base>
+)}

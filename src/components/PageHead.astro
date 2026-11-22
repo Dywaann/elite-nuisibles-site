@@ -1,0 +1,18 @@
+---
+import type { Crumb } from '../lib/seo';
+interface Props { crumbs: Crumb[]; title: string; intro?: string; eyebrow?: string; compact?: boolean }
+const { crumbs, title, intro, eyebrow, compact = false } = Astro.props;
+---
+<div class="container page-head">
+  <nav aria-label="Fil d'Ariane">
+    <ol class="crumbs">
+      {crumbs.map((c, i) => (
+        <li>{i < crumbs.length - 1 ? <a href={c.path}>{c.name}</a> : <span aria-current="page">{c.name}</span>}</li>
+      ))}
+    </ol>
+  </nav>
+  {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+  <h1 class:list={['h1', compact && 'compact']} style="max-width:900px">{title}</h1>
+  {intro && <p class="lead" style="max-width:720px">{intro}</p>}
+  <slot />
+</div>

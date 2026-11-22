@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import ContactBlock from '../components/ContactBlock.astro';
+import Reviews from '../components/Reviews.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Engagements from '../components/Engagements.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { breadcrumbLd } from '../lib/seo';
+const path = '/demander-un-devis/';
+const crumbs = [{ name: 'Accueil', path: '/' }, { name: 'Demander un devis', path }];
+---
+<Base
+  title="Demander un devis dératisation gratuit | Elite Nuisibles IDF"
+  description="Obtenez votre devis gratuit en 1 clic pour une dératisation, un traitement punaises de lit ou une désinsectisation en Île-de-France. Réponse en 20 minutes."
+  path={path}
+  jsonLd={[breadcrumbLd(crumbs)]}
+>
+  <PageHead crumbs={crumbs} title="Demander un devis gratuit" intro="Obtenez votre devis en 1 clic : un expert vous rappelle en moins de 20 minutes." />
+  <ContactBlock source="Site principal - Page devis" title="Obtenir mon devis gratuit" />
+  <TrustStrip />
+  <Engagements />
+  <Reviews />
+  <FinalCta />
+</Base>

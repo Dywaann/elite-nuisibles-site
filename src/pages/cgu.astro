@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import cgu from '../content/cgu.html?raw';
+import { breadcrumbLd } from '../lib/seo';
+const path = '/cgu/';
+const crumbs = [{ name: 'Accueil', path: '/' }, { name: 'Mentions légales, CGU et CGV', path }];
+---
+<Base
+  title="Politique de confidentialité, mentions légales, CGU et CGV | Elite Nuisibles IDF"
+  description="Politique de confidentialité (RGPD), mentions légales, conditions générales d’utilisation et conditions générales de vente d’Elite Nuisibles IDF."
+  path={path}
+  jsonLd={[breadcrumbLd(crumbs)]}
+>
+  <PageHead crumbs={crumbs} title="Politique de confidentialité, mentions légales et conditions générales" intro="En vigueur au 01/01/2026." compact />
+  <section class="section" style="padding-top:28px">
+    <div class="container narrow"><div class="glass article"><div class="article-body" set:html={cgu} /></div></div>
+  </section>
+</Base>

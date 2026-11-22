@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Stars from '../components/Stars.astro';
+import CallButton from '../components/CallButton.astro';
+import LeadForm from '../components/LeadForm.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import ConversionBlock from '../components/ConversionBlock.astro';
+import Engagements from '../components/Engagements.astro';
+import Reviews from '../components/Reviews.astro';
+import Faq from '../components/Faq.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { SITE } from '../data/site';
+import { breadcrumbLd, faqLd, localBusinessLd } from '../lib/seo';
+
+const path = '/professionnels-deratisation-paris/';
+const crumbs = [{ name: 'Accueil', path: '/' }, { name: 'Professionnels', path }];
+const hero = '/images/technicien-desinsectisation-cuisine.webp';
+const FAQ = [
+  { q: 'Proposez-vous des contrats d’entretien pour les professionnels ?', a: 'Oui. Interventions ponctuelles ou contrats de suivi : passages réguliers, contrôle des postes, rapport.' },
+  { q: 'Fournissez-vous un rapport pour les contrôles sanitaires ?', a: 'Oui : un rapport détaillé après chaque intervention, à présenter lors d’un contrôle d’hygiène.' },
+  { q: 'Pouvez-vous intervenir en dehors des heures d’ouverture ?', a: 'Oui, 7j/7 : tôt le matin, le soir ou pendant la fermeture, sans gêner votre activité.' },
+  { q: 'Intervenez-vous discrètement ?', a: 'Oui, avec des véhicules non marqués, pour préserver l’image de votre établissement.' },
+];
+const ENJEUX = [
+  { icon: 'file', title: 'Conformité sanitaire', text: 'Des nuisibles peuvent entraîner sanctions et fermeture temporaire.' },
+  { icon: 'star', title: 'Image de marque', text: 'Un nuisible vu par un client, et les avis en ligne s’en souviennent longtemps.' },
+  { icon: 'alert', title: 'Sécurité alimentaire', text: 'En cuisine, ils contaminent les stocks et mettent vos clients en danger.' },
+];
+const SOLUTIONS = [
+  { title: 'Rats et souris', text: 'Rongeurs éliminés, durablement.', perks: ['Postes d’appâtage sécurisés', 'Suivi régulier'] },
+  { title: 'Insectes', text: 'Cafards, blattes, punaises de lit, fourmis.', perks: ['Élimination rapide', 'Prévention durable'] },
+  { title: 'Rapport à chaque passage', text: 'À conserver pour vos contrôles d’hygiène.', perks: ['Zones traitées, produits utilisés', 'Recommandations'] },
+];
+const SECTEURS = ['Restaurants et bars', 'Hôtels et locations', 'Commerces', 'Bureaux et copropriétés'];
+---
+<Base
+  title="Dératisation et désinsectisation pour professionnels à Paris | Elite Nuisibles IDF"
+  description="Solutions de dératisation et désinsectisation sur-mesure pour hôtels, restaurants, bureaux et commerces à Paris. Intervention rapide et discrète, rapport d’intervention."
+  path={path}
+  image={hero}
+  jsonLd={[localBusinessLd(), faqLd(FAQ), breadcrumbLd(crumbs)]}
+  preloadImage={hero}
+>
+  <div class="container" style="padding-top:36px">
+    <div class="split" style="align-items:flex-start">
+      <div class="split-main stack" style="gap:20px">
+        <nav aria-label="Fil d'Ariane"><ol class="crumbs"><li><a href="/">Accueil</a></li><li><span aria-current="page">Professionnels</span></li></ol></nav>
+        <span class="chip chip-navy" style="align-self:flex-start"><i class="dot" aria-hidden="true"></i>Hôtels, bars, restaurants et commerces</span>
+        <h1 class="h1" style="font-size:clamp(32px,4.6vw,52px)">Dératisation et désinsectisation pour les professionnels</h1>
+        <p class="lead" style="font-weight:700;color:var(--navy)">Protégez votre établissement et votre réputation</p>
+        <ul class="checklist">
+          <li><Icon name="check" size={18} stroke={2.8} />Intervention discrète, hors horaires</li>
+          <li><Icon name="check" size={18} stroke={2.8} />Rapport pour vos contrôles sanitaires</li>
+          <li><Icon name="check" size={18} stroke={2.8} />Contrats de suivi sur-mesure</li>
+        </ul>
+        <div class="cta-row"><CallButton large /></div>
+        <a class="rating" href="#avis"><Stars label={`Note ${SITE.rating.value} sur 5`} />{SITE.rating.value}/5 sur {SITE.rating.count} avis Google</a>
+        <figure class="media" style="aspect-ratio:16/7;margin-top:8px"><img src={hero} alt="Technicien traitant une cuisine professionnelle" width="1600" height="673" fetchpriority="high" /></figure>
+      </div>
+      <div class="split-side sticky-side">
+        <LeadForm source="Site principal - Professionnels" service="Professionnel - Dératisation / désinsectisation" title="Devis professionnel gratuit" subtitle="Un expert vous rappelle pour évaluer vos besoins." button="J'obtiens mon devis" message />
+      </div>
+    </div>
+  </div>
+
+  <TrustStrip />
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Pourquoi agir</span>
+        <h2 class="h2">Ce qu'une infestation coûte à un établissement</h2>
+        <p class="lead">Un contrôle sanitaire défavorable, des avis négatifs, des clients perdus.</p>
+      </div>
+      <div class="grid grid-3 m-scroll">
+        {ENJEUX.map((e) => <div class="glass feature reveal"><span class="ico"><Icon name={e.icon} size={22} /></span><div><h3>{e.title}</h3><p>{e.text}</p></div></div>)}
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="dark reveal">
+      <div class="section-head" style="margin-bottom:28px"><span class="eyebrow">Nos solutions</span><h2 class="h2">Une protection totale et durable</h2></div>
+      <div class="grid grid-3 m-scroll" style="gap:16px">
+        {SOLUTIONS.map((s) => <div class="tile"><h3>{s.title}</h3><p>{s.text}</p><ul>{s.perks.map((k) => <li><Icon name="check" size={16} stroke={2.8} />{k}</li>)}</ul></div>)}
+      </div>
+      <ul class="pills" style="margin-top:24px">
+        {SECTEURS.map((s) => <li style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.22);color:#fff"><Icon name="building" size={18} />{s}</li>)}
+      </ul>
+    </section>
+  </div>
+
+  <Engagements />
+  <Reviews />
+  <ConversionBlock source="Site principal - Professionnels" service="Professionnel - Dératisation / désinsectisation" title="Un nuisible dans votre établissement ? Parlons-en maintenant" />
+  <Faq items={FAQ} title="Vos questions de professionnels" />
+  <FinalCta title="Un problème de nuisibles dans votre établissement ?" />
+</Base>

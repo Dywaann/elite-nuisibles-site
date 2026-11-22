@@ -1,0 +1,60 @@
+---
+// Formulaire de rappel / devis (Web3Forms, même clé que les landings).
+// L'envoi et la validation sont gérés par le script global de Base.astro.
+import Icon from './Icon.astro';
+import { SITE } from '../data/site';
+interface Props { id?: string; source?: string; service?: string; title?: string; subtitle?: string; button?: string; message?: boolean; heading?: 'h2' | 'p' }
+const {
+  id = 'rappel',
+  source = 'Site principal',
+  service = 'Demande de devis - Site principal',
+  title = 'On vous rappelle',
+  subtitle = 'Réponse en 20 minutes. Gratuit, sans engagement.',
+  button = 'Rappelez-moi',
+  message = false,
+  heading = 'h2',
+} = Astro.props;
+const H = heading;
+const test = import.meta.env.PUBLIC_NOINDEX === '1' ? '[TEST aperçu] ' : '';
+---
+<form id={id} class="glass form" novalidate data-lead data-source={source} data-service={service}>
+  <div>
+    <H class="form-title">{title}</H>
+    <p class="sub">{subtitle}</p>
+  </div>
+  <input type="hidden" name="access_key" value={SITE.web3formsKey} />
+  <input type="hidden" name="subject" value={`${test}Nouveau lead · ${source}`} />
+  <input type="hidden" name="from_name" value={`${source} Elite Nuisibles`} />
+  <input type="hidden" name="Service" value={service} />
+  <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" hidden />
+  <div class="field" data-field="name">
+    <label for={`${id}-name`}>Nom complet</label>
+    <input id={`${id}-name`} name="name" autocomplete="name" placeholder="Votre nom" required />
+    <span class="err">Indiquez votre nom.</span>
+  </div>
+  <div class="row">
+    <div class="field" data-field="phone">
+      <label for={`${id}-phone`}>Téléphone</label>
+      <input id={`${id}-phone`} name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="06 00 00 00 00" required />
+      <span class="err">Numéro de téléphone invalide.</span>
+    </div>
+    <div class="field" data-field="postal_code">
+      <label for={`${id}-cp`}>Code postal</label>
+      <input id={`${id}-cp`} name="postal_code" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="94000" required />
+      <span class="err">Code postal à 5 chiffres.</span>
+    </div>
+  </div>
+  {message && (
+    <div class="field">
+      <label for={`${id}-msg`}>Message (facultatif)</label>
+      <textarea id={`${id}-msg`} name="message" rows="3" placeholder="Ex : traces de rongeurs dans la cuisine depuis quelques jours"></textarea>
+    </div>
+  )}
+  <button type="submit" class="btn btn-navy btn-block">{button}</button>
+  <p class="fail" role="alert">L'envoi a échoué. Appelez-nous directement au {SITE.phone}.</p>
+  <p class="note"><Icon name="lock" size={12} /> Vos données restent confidentielles. Aucun engagement.</p>
+  <div class="urgent">
+    Une urgence ? Appelez directement :<br />
+    <a href={SITE.phoneHref} data-cta="appel"><Icon name="phone" size={18} /> {SITE.phone}</a>
+  </div>
+</form>

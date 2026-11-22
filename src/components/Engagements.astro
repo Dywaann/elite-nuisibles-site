@@ -1,0 +1,22 @@
+---
+import Icon from './Icon.astro';
+import { ENGAGEMENTS } from '../data/site';
+interface Props { title?: string }
+const { title = 'Six engagements, zéro surprise' } = Astro.props;
+---
+<section class="section" aria-labelledby="titre-pourquoi">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Pourquoi nous choisir</span>
+      <h2 id="titre-pourquoi" class="h2">{title}</h2>
+    </div>
+    <div class="grid grid-3 m-scroll">
+      {ENGAGEMENTS.map((e) => (
+        <div class="glass feature reveal">
+          <span class="ico"><Icon name={e.icon} size={22} /></span>
+          <div><h3>{e.title}</h3><p>{e.text}</p></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+---
+import type { Article } from '../lib/articles';
+import { formatDateFr } from '../lib/articles';
+interface Props { post: Article; heading?: 'h2' | 'h3' }
+const { post, heading = 'h3' } = Astro.props;
+const H = heading;
+---
+<a class="glass post-card reveal" href={`/${post.slug}/`}>
+  <div class="thumb"><img src={post.image} alt="" loading="lazy" width="640" height="360" /></div>
+  <div class="body">
+    <span class="meta">{formatDateFr(post.updatedIso || post.date)} · {post.readingMinutes} min de lecture</span>
+    <H>{post.title}</H>
+    <p>{post.excerpt}</p>
+  </div>
+</a>
