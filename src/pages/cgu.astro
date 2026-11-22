@@ -12,7 +12,7 @@ const crumbs = [{ name: 'Accueil', path: '/' }, { name: 'Mentions légales, CGU 
   path={path}
   jsonLd={[breadcrumbLd(crumbs)]}
 >
-  <PageHead crumbs={crumbs} title="Politique de confidentialité, mentions légales et conditions générales" intro="En vigueur au 01/01/2026." />
+  <PageHead crumbs={crumbs} title="Politique de confidentialité, mentions légales et conditions générales" intro="En vigueur au 01/01/2026." compact />
   <section class="section" style="padding-top:28px">
     <div class="container narrow"><div class="glass article"><div class="article-body" set:html={cgu} /></div></div>
   </section>

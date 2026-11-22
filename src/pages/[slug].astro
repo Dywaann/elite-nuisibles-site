@@ -185,7 +185,7 @@ const others = post ? ARTICLES.filter((a) => a.slug !== post.slug).slice(0, 3) :
     jsonLd={[articleLd!, breadcrumbLd(postCrumbs), ...(post.faq.length ? [faqLd(post.faq)] : [])]}
     preloadImage={post.image}
   >
-    <PageHead crumbs={postCrumbs} title={post.title}>
+    <PageHead crumbs={postCrumbs} title={post.title} compact>
       <p class="muted" style="font-size:14px;font-weight:700;display:flex;flex-wrap:wrap;gap:6px 18px">
         <span>{post.updatedIso ? `Mis à jour le ${formatDateFr(post.updatedIso)}` : `Publié le ${formatDateFr(post.date)}`}</span>
         <span>{post.readingMinutes} min de lecture</span>

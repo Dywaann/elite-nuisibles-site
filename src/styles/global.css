@@ -265,7 +265,8 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 28px 60px rgba(5, 58, 
 .faq details p { padding: 0 0 20px; color: var(--muted); font-size: 16px; }
 
 /* ---------- En-tête de page intérieure ---------- */
-.page-head { padding: 40px 0 8px; display: flex; flex-direction: column; gap: 16px; }
+.page-head { padding-top: 40px; padding-bottom: 8px; display: flex; flex-direction: column; gap: 16px; }
+.page-head .h1.compact { font-size: clamp(28px, 3.6vw, 42px); line-height: 1.14; }
 .crumbs { display: flex; flex-wrap: wrap; gap: 6px; font-size: 14px; font-weight: 600; color: var(--muted); }
 .crumbs a { color: var(--muted); text-underline-offset: 3px; }
 .crumbs li + li::before { content: '/'; margin-right: 6px; opacity: 0.6; }
