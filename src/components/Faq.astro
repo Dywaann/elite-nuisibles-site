@@ -5,9 +5,9 @@ const { items, title = 'Questions fréquentes' } = Astro.props;
 ---
 <section class="section" aria-labelledby="titre-faq">
   <div class="container narrow">
-    <div class="section-head center reveal">
+    <div class="section-head reveal">
       <span class="eyebrow">FAQ</span>
-      <h2 id="titre-faq" class="h2 center">{title}</h2>
+      <h2 id="titre-faq" class="h2">{title}</h2>
     </div>
     <div class="faq">
       {items.map((i) => (

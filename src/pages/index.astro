@@ -28,17 +28,17 @@ const hero = '/images/hero-techniciens-traitement-nuisibles.webp';
 >
   <div class="container">
     <section class="hero">
-      <span class="chip chip-navy"><i class="dot" aria-hidden="true"></i>Urgence 24h/24 · Intervention en moins d'1h · 7j/7</span>
+      <span class="chip chip-navy"><i class="dot" aria-hidden="true"></i>Urgence 24h/24 · Intervention en moins d'1h</span>
       <h1 class="h1">Dératisation Paris &amp; désinsectisation en <span class="hl">Île-de-France</span></h1>
-      <p class="lead">Rats, souris, punaises de lit, cafards, fourmis : un technicien certifié chez vous rapidement, avec un prix fixe annoncé avant l'intervention.</p>
+      <p class="lead">Rats, punaises de lit, cafards : un technicien certifié chez vous en moins d'1h. Prix fixe, annoncé avant d'intervenir.</p>
       <div class="cta-row">
         <CallButton large />
-        <a href="#rappel" class="btn btn-ghost btn-lg m-hide" style="font-size:17px">Être rappelé en 20 minutes</a>
+        <a href="#rappel" class="btn btn-ghost btn-lg m-hide" style="font-size:17px">Être rappelé en 20 min</a>
       </div>
       <ul class="pills center">
-        <li><Icon name="check" size={18} stroke={2.8} />Déplacement et devis gratuits</li>
-        <li><Icon name="check" size={18} stroke={2.8} />Prix fixes, connus à l'avance</li>
-        <li><Icon name="check" size={18} stroke={2.8} />Techniciens certifiés Certibiocide</li>
+        <li><Icon name="check" size={18} stroke={2.8} />Déplacement gratuit</li>
+        <li><Icon name="check" size={18} stroke={2.8} />Prix fixe annoncé</li>
+        <li><Icon name="check" size={18} stroke={2.8} />Certifié Certibiocide</li>
       </ul>
       <a class="rating" href="#avis"><Stars label={`Note ${SITE.rating.value} sur 5`} />{SITE.rating.value}/5 sur {SITE.rating.count} avis Google</a>
     </section>
@@ -46,8 +46,8 @@ const hero = '/images/hero-techniciens-traitement-nuisibles.webp';
     <section class="split" style="margin-bottom:32px">
       <div class="photo split-main">
         <img src={hero} alt="Techniciens Élite Nuisibles en combinaison traitant un salon" width="1000" height="1000" fetchpriority="high" />
-        <span class="float end"><Icon name="shield" size={18} />Entreprise assurée, RC professionnelle</span>
-        <span class="float start"><i class="dot" aria-hidden="true"></i><span>Joignable 24h/24, 7j/7<small>Paris et petite couronne en moins d'1h</small></span></span>
+        <span class="float end"><Icon name="shield" size={18} />Entreprise assurée</span>
+        <span class="float start"><i class="dot" aria-hidden="true"></i><span>Joignable 24h/24, 7j/7</span></span>
       </div>
       <div class="split-side"><LeadForm source="Site principal - Accueil" /></div>
     </section>
@@ -59,9 +59,9 @@ const hero = '/images/hero-techniciens-traitement-nuisibles.webp';
 
   <section id="services" class="section" aria-labelledby="titre-services">
     <div class="container">
-      <div class="section-head center reveal">
+      <div class="section-head reveal">
         <span class="eyebrow">Nos interventions</span>
-        <h2 id="titre-services" class="h2 center">Un prix fixe, annoncé avant l'intervention</h2>
+        <h2 id="titre-services" class="h2">Un prix fixe, annoncé avant l'intervention</h2>
       </div>
       <div class="grid grid-3 m-scroll">
         {HOME_SERVICES.map((s) => (
@@ -74,12 +74,12 @@ const hero = '/images/hero-techniciens-traitement-nuisibles.webp';
           </a>
         ))}
       </div>
-      <div class="glass card reveal" style="margin-top:20px">
-        <h3 class="h3">Tous les nuisibles que nous traitons</h3>
-        <ul class="grid grid-3 pest-list" style="gap:10px 28px;font-size:15px">
-          {PESTS_ALL.map((p) => <li class="muted"><a href={p.to} style="font-weight:800;color:var(--navy)">{p.name}</a><span class="d"> : {p.desc}</span></li>)}
+      <div class="glass card pest-band reveal" style="margin-top:20px">
+        <h3 class="h3">Tous les nuisibles traités</h3>
+        <ul class="pest-chips">
+          {PESTS_ALL.map((p) => <li><a href={p.to}>{p.name}</a></li>)}
         </ul>
-        <a class="link-arrow" href="/services-lutte-nuisibles-paris/">Voir tous nos services <Icon name="arrow" size={18} /></a>
+        <a class="link-arrow" href="/services-lutte-nuisibles-paris/">Tous nos services <Icon name="arrow" size={18} /></a>
       </div>
     </div>
   </section>
@@ -95,7 +95,7 @@ const hero = '/images/hero-techniciens-traitement-nuisibles.webp';
         <div class="stack reveal" style="flex:1 1 420px;gap:16px">
           <span class="eyebrow">Qui sommes-nous</span>
           <h2 id="titre-apropos" class="h2">Une entreprise francilienne, des techniciens certifiés</h2>
-          <p class="lead">Fondée en 2021, Elite Nuisibles IDF est spécialisée dans la lutte contre les nuisibles. Nos techniciens certifiés Certibiocide interviennent chez les particuliers comme chez les professionnels, avec des méthodes éprouvées et un suivi rigoureux.</p>
+          <p class="lead">Depuis 2021, nos techniciens certifiés Certibiocide protègent logements et locaux professionnels, partout en Île-de-France.</p>
           <blockquote class="glass" style="padding:20px 22px;border-radius:20px">
             <p style="font-style:italic">« Notre mission est de garantir un environnement sain et sécurisé pour tous nos clients. »</p>
             <p style="margin-top:8px;font-size:14px;font-weight:800">Bastien Gaumet, Directeur</p>
@@ -117,7 +117,7 @@ const hero = '/images/hero-techniciens-traitement-nuisibles.webp';
       <div class="review-head reveal">
         <div class="stack" style="gap:10px">
           <span class="eyebrow">Conseils d'experts</span>
-          <h2 id="titre-blog" class="h2">Nos derniers articles</h2>
+          <h2 id="titre-blog" class="h2">Nos derniers conseils</h2>
         </div>
         <a class="link-arrow" href="/blog/">Tous les articles <Icon name="arrow" size={18} /></a>
       </div>

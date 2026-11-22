@@ -123,7 +123,7 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 28px 60px rgba(5, 58, 
 .pills.center { justify-content: center; }
 .pills li { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 999px; font-size: 15px; font-weight: 700; background: rgba(255, 255, 255, 0.5); border: 1px solid var(--glass-border); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
 .pills svg { color: var(--blue); flex: none; }
-.rating { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 10px; min-height: 44px; font-size: 14px; font-weight: 700; color: var(--navy); text-decoration: none; }
+.rating { display: inline-flex; flex-wrap: nowrap; white-space: nowrap; align-items: center; gap: 10px; min-height: 44px; font-size: 14px; font-weight: 700; color: var(--navy); text-decoration: none; }
 .stars { color: var(--star); flex: none; }
 
 /* ---------- Bandeau d'urgence + en-tête ---------- */
@@ -251,7 +251,6 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 28px 60px rgba(5, 58, 
 .feature p { margin-top: 6px; font-size: 15px; line-height: 1.5; color: var(--muted); }
 .zones-grid { grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr)); }
 @media (min-width: 720px) { .zones-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); } }
-@media (max-width: 719px) { .zone { flex-direction: column; gap: 10px; padding: 16px; } .hero .chip { font-size: 13px; text-align: left; } }
 .zone { padding: 20px 22px; border-radius: 22px; display: flex; align-items: flex-start; gap: 14px; }
 .zone .code { flex: none; display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 14px; background: var(--navy); color: #fff; font-weight: 800; }
 .zone h3 { font-size: 17px; font-weight: 800; }
@@ -327,11 +326,29 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 28px 60px rgba(5, 58, 
 .callbar .btn-call { flex: 1.5; }
 @media (min-width: 720px) { .callbar { display: none; } }
 
+/* ---------- Alignements et listes ---------- */
+p, li { text-wrap: pretty; }
+.one-line { white-space: nowrap; }
+.checklist { display: flex; flex-direction: column; gap: 10px; font-size: 16px; font-weight: 700; }
+.checklist li { display: flex; align-items: center; gap: 12px; }
+.checklist svg { color: var(--blue); flex: none; }
+.dark .checklist { color: #fff; font-weight: 600; }
+.dark .checklist svg { color: var(--go); }
+.pest-band { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 28px; }
+.pest-band .h3 { flex: none; }
+.pest-band .link-arrow { flex: none; }
+.pest-chips { flex: 1 1 520px; display: flex; flex-wrap: wrap; gap: 8px; }
+.pest-chips a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: rgba(255, 255, 255, 0.7); border: 1px solid var(--line); font-size: 15px; font-weight: 700; color: var(--navy); text-decoration: none; transition: background-color 0.2s ease, border-color 0.2s ease; }
+.pest-chips a:hover { background: #fff; border-color: var(--blue); }
+.hero .chip { white-space: nowrap; }
+.feature h3 { line-height: 1.3; }
+.feature > div { padding-top: 2px; min-width: 0; }
+.post-card h2, .post-card h3, .post-card p, .zone p { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+.email { font-size: clamp(12.5px, 3.2vw, 16px); }
+@media (min-width: 960px) { .footer-grid { grid-template-columns: 1.25fr 1fr 1fr 1.5fr; } }
+
 /* ---------- Réassurance + conversion ---------- */
 .trust-strip { gap: 32px; margin-top: 40px; }
-.checks { display: flex; flex-direction: column; gap: 10px; font-size: 16px; font-weight: 600; color: #fff; }
-.checks li { display: flex; align-items: center; gap: 12px; }
-.checks svg { color: var(--go); flex: none; }
 .dark .rating { color: #fff; }
 
 /* ---------- Allègement mobile ---------- */
@@ -364,9 +381,15 @@ a.card:hover { transform: translateY(-4px); box-shadow: 0 28px 60px rgba(5, 58, 
   .m-scroll > * { flex: 0 0 80%; scroll-snap-align: center; }
   .dark .m-scroll { margin: 0 -20px; }
   .js .m-scroll .reveal { opacity: 1; transform: none; }
-  .pest-list { display: flex !important; flex-wrap: wrap; gap: 8px !important; }
-  .pest-list .d { display: none; }
-  .pest-list li a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.7); border: 1px solid var(--line); text-decoration: none; font-size: 14px; }
+  .pest-band { flex-direction: column; align-items: flex-start; }
+  .pest-chips { flex: none; }
+  .pest-chips a { min-height: 40px; padding: 0 14px; font-size: 14px; }
+  .hero .chip { font-size: 12.5px; padding: 8px 14px; }
+  .feature { padding: 18px; gap: 12px; }
+  .feature .ico { width: 40px; height: 40px; border-radius: 12px; }
+  .footer .one-line { font-size: 13.5px; }
+  .rating { font-size: 13px; gap: 8px; }
+  .rating .stars { width: 84px; height: 16px; }
   .zone { flex-direction: row !important; align-items: center; padding: 12px !important; gap: 10px !important; border-radius: 16px; }
   .zone p { display: none; }
   .zone h3 { font-size: 14px; }

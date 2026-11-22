@@ -10,7 +10,7 @@ const year = new Date().getFullYear();
         <a class="brand" href="/" aria-label={`${SITE.brand}, accueil`}>
           <img src={SITE.logo} alt={SITE.brand} width="583" height="205" loading="lazy" />
         </a>
-        <p style="margin-top:14px;max-width:300px">Dératisation, désinsectisation et traitement des punaises de lit à Paris et dans toute l'Île-de-France. Entreprise certifiée Certibiocide.</p>
+        <p style="margin-top:14px;max-width:300px">Dératisation et désinsectisation à Paris et en Île-de-France. Entreprise certifiée Certibiocide.</p>
       </div>
       <div>
         <h2>Nos services</h2>
@@ -34,9 +34,9 @@ const year = new Date().getFullYear();
         <h2>Contact</h2>
         <ul>
           <li><a href={SITE.phoneHref} data-cta="appel" style="font-weight:800;color:var(--navy)"><Icon name="phone" size={16} /> {SITE.phone}</a></li>
-          <li><a href={`mailto:${SITE.email}`} style="word-break:break-all"><Icon name="mail" size={16} /> {SITE.email}</a></li>
+          <li><a href={`mailto:${SITE.email}`} class="one-line"><Icon name="mail" size={16} /> {SITE.email}</a></li>
           <li><span style="display:inline-flex;gap:8px;align-items:center;min-height:36px"><Icon name="clock" size={16} /> Disponible 7j/7 · 24h/24</span></li>
-          <li><span style="display:inline-flex;gap:8px;align-items:flex-start;padding-top:6px"><Icon name="pin" size={16} /> {SITE.address.street}, {SITE.address.zip} {SITE.address.city}</span></li>
+          <li><span class="one-line" style="display:inline-flex;gap:8px;align-items:center;min-height:36px"><Icon name="pin" size={16} /> {SITE.address.street}, {SITE.address.zip} {SITE.address.city}</span></li>
         </ul>
       </div>
     </div>

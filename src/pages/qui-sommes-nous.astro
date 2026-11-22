@@ -14,10 +14,10 @@ import { breadcrumbLd, localBusinessLd } from '../lib/seo';
 const path = '/qui-sommes-nous/';
 const crumbs = [{ name: 'Accueil', path: '/' }, { name: 'Qui sommes-nous ?', path }];
 const VALEURS = [
-  { icon: 'target', title: 'Notre mission', text: 'Éradiquer les nuisibles rapidement et efficacement, tout en respectant l’environnement et la sécurité de nos clients.' },
-  { icon: 'leaf', title: 'Des méthodes raisonnées', text: 'Nous privilégions des méthodes et des produits adaptés, appliqués avec précision, pour protéger votre santé et celle de vos proches.' },
-  { icon: 'shield', title: 'Certifiés et assurés', text: 'Certification Certibiocide et responsabilité civile professionnelle : vous êtes entre de bonnes mains.' },
-  { icon: 'heart', title: 'Transparence', text: 'Déplacement gratuit, devis clair avant toute intervention et prix fixe : pas de mauvaise surprise.' },
+  { icon: 'target', title: 'Notre mission', text: 'Éliminer les nuisibles vite et bien, sans risque pour vous ni pour l’environnement.' },
+  { icon: 'leaf', title: 'Méthodes raisonnées', text: 'Le bon produit, au bon endroit, à la bonne dose.' },
+  { icon: 'shield', title: 'Certifiés et assurés', text: 'Certification Certibiocide et responsabilité civile professionnelle.' },
+  { icon: 'heart', title: 'Transparence', text: 'Déplacement gratuit, devis clair, prix fixe.' },
 ];
 ---
 <Base
@@ -26,7 +26,7 @@ const VALEURS = [
   path={path}
   jsonLd={[localBusinessLd(), breadcrumbLd(crumbs)]}
 >
-  <PageHead crumbs={crumbs} title="Qui sommes-nous ?" intro="Des artisans fiables et reconnus, au service des particuliers et des professionnels d'Île-de-France.">
+  <PageHead crumbs={crumbs} title="Qui sommes-nous ?" intro="Des artisans fiables, au service des particuliers et des professionnels d'Île-de-France.">
     <div class="cta-row"><CallButton /><a class="btn btn-ghost" href="#devis-bas">Être rappelé en 20 minutes</a></div>
   </PageHead>
   <TrustStrip />
@@ -40,8 +40,8 @@ const VALEURS = [
           <span class="eyebrow">Notre histoire</span>
           <h2 class="h2">Votre partenaire de confiance contre les nuisibles</h2>
           <div class="prose">
-            <p>Fondée en 2021, Elite Nuisibles IDF est une entreprise spécialisée dans la lutte contre les nuisibles. Depuis notre création, nous nous engageons à offrir des services de haute qualité pour garantir un environnement sain et sécurisé à nos clients, qu'ils soient particuliers ou professionnels.</p>
-            <p>Notre équipe de techniciens certifiés Certibiocide intervient dans les 8 départements d'Île-de-France, 7 jours sur 7, avec un objectif simple : une intervention rapide, un prix juste annoncé à l'avance et un résultat durable.</p>
+            <p>Depuis 2021, Elite Nuisibles IDF protège logements et locaux professionnels contre les nuisibles, partout en Île-de-France.</p>
+            <p>Nos techniciens certifiés Certibiocide interviennent 7j/7 dans les 8 départements, avec trois règles : arriver vite, annoncer le prix avant, obtenir un résultat durable.</p>
           </div>
           <blockquote class="glass" style="padding:22px 24px;border-radius:20px">
             <p style="font-style:italic;font-size:17px">« Notre mission chez Elite Nuisibles IDF est de garantir un environnement sain et sécurisé pour tous nos clients. »</p>
@@ -53,7 +53,7 @@ const VALEURS = [
   </section>
   <section class="section" style="padding-top:0">
     <div class="container">
-      <div class="section-head center reveal"><span class="eyebrow">L'amour du métier</span><h2 class="h2 center">Notre mission et nos valeurs</h2></div>
+      <div class="section-head reveal"><span class="eyebrow">L'amour du métier</span><h2 class="h2">Notre mission et nos valeurs</h2></div>
       <div class="grid grid-2 m-scroll">
         {VALEURS.map((e) => <div class="glass feature reveal"><span class="ico"><Icon name={e.icon} size={22} /></span><div><h3>{e.title}</h3><p>{e.text}</p></div></div>)}
       </div>

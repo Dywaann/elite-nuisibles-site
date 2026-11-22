@@ -55,25 +55,25 @@ export const CLIENTS: { name: string; logo?: string }[] = [
 
 // Les 4 chiffres validés pour l'accueil (le premier est mis en avant).
 export const KEY_FIGURES = [
-  { value: '0 €', label: 'de déplacement et de diagnostic', highlight: true },
-  { value: "Moins d'1h", label: 'pour intervenir à Paris et en petite couronne' },
+  { value: '0 €', label: 'le déplacement et le diagnostic', highlight: true },
+  { value: "Moins d'1h", label: 'à Paris et en petite couronne' },
   { value: '20 min', label: 'pour recevoir votre devis' },
-  { value: '7j/7', label: 'et téléphone ouvert 24h/24' },
+  { value: '7j/7', label: 'téléphone ouvert 24h/24' },
 ];
 
 export const ENGAGEMENTS = [
-  { icon: 'clock', title: "Intervention en moins d'1h", text: 'Sur Paris et la petite couronne, 7j/7.' },
-  { icon: 'tag', title: 'Prix fixes, sans surprise', text: 'Annoncés après le diagnostic, avant toute intervention. Paiement échelonné possible.' },
-  { icon: 'shield', title: 'Certifiés Certibiocide', text: 'Techniciens certifiés, entreprise assurée en responsabilité civile professionnelle.' },
-  { icon: 'heart', title: 'Sans danger pour vos proches', text: 'Produits homologués et consignes claires pour les enfants et les animaux.' },
-  { icon: 'refresh', title: 'Résultat garanti', text: 'Retour gratuit si les nuisibles reviennent pendant la période de garantie.' },
-  { icon: 'eyeoff', title: 'Intervention discrète', text: 'Véhicules non marqués, passages possibles tôt le matin ou le soir.' },
+  { icon: 'clock', title: "Sur place en moins d'1h", text: 'Paris et petite couronne, 7j/7.' },
+  { icon: 'tag', title: 'Prix fixe, sans surprise', text: "Annoncé avant l'intervention. Paiement échelonné possible." },
+  { icon: 'shield', title: 'Certifiés Certibiocide', text: 'Techniciens certifiés, entreprise assurée.' },
+  { icon: 'heart', title: 'Sûr pour vos proches', text: 'Produits homologués, consignes claires pour enfants et animaux.' },
+  { icon: 'refresh', title: 'Résultat garanti', text: 'Retour gratuit si les nuisibles reviennent pendant la garantie.' },
+  { icon: 'eyeoff', title: 'Intervention discrète', text: 'Véhicules non marqués, passages tôt le matin ou le soir.' },
 ];
 
 export const HOME_SERVICES = [
-  { title: 'Dératisation', text: 'Rats, souris, mulots. Diagnostic, traitement et suivi.', to: '/deratisation-paris/', from: '109 €' },
-  { title: 'Punaises de lit', text: 'Traitement chimique, vapeur sèche à 180 °C ou cryogénisation.', to: '/punaises-de-lit/', from: '150 €' },
-  { title: 'Cafards et blattes', text: 'Gel appât et pulvérisation, traitement des nids inclus.', to: '/desinsectisation-cafards-blattes-idf/', from: '160 €' },
+  { title: 'Dératisation', text: 'Rats, souris, mulots.', to: '/deratisation-paris/', from: '109 €' },
+  { title: 'Punaises de lit', text: 'Chimique, vapeur sèche ou cryogénie.', to: '/punaises-de-lit/', from: '150 €' },
+  { title: 'Cafards et blattes', text: 'Gel appât et pulvérisation, nids inclus.', to: '/desinsectisation-cafards-blattes-idf/', from: '160 €' },
 ];
 
 export const ZONES = [
@@ -104,15 +104,15 @@ export const REVIEWS = [
 ];
 
 export const PESTS_ALL = [
-  { name: 'Rats', desc: 'Élimination des rats et prévention des infestations dans vos locaux.', to: '/deratisation-paris/' },
-  { name: 'Souris', desc: 'Éradication rapide des souris avec des méthodes sûres et efficaces.', to: '/deratisation-paris/' },
-  { name: 'Mulots', desc: 'Traitement et prévention des invasions de mulots dans votre environnement.', to: '/deratisation-paris/' },
-  { name: 'Punaises de lit', desc: 'Extermination complète des punaises de lit et prévention des réinfestations.', to: '/punaises-de-lit/' },
-  { name: 'Cafards & blattes', desc: 'Éradication des cafards et blattes avec des techniques adaptées et durables.', to: '/desinsectisation-cafards-blattes-idf/' },
-  { name: 'Fourmis', desc: 'Solutions pour éliminer les fourmis et empêcher leur retour.', to: '/desinsectisation-fourmis-idf/' },
-  { name: 'Puces', desc: 'Traitements efficaces contre les puces pour un environnement sans parasites.', to: '/demander-un-devis/' },
-  { name: 'Mites', desc: 'Mites alimentaires et vestimentaires : traitement ciblé des zones de ponte.', to: '/demander-un-devis/' },
-  { name: 'Acariens', desc: "Interventions pour réduire les acariens et améliorer la qualité de l'air intérieur.", to: '/demander-un-devis/' },
+  { name: 'Rats', desc: 'Élimination et rebouchage des accès.', to: '/deratisation-paris/' },
+  { name: 'Souris', desc: 'Éradication rapide et sûre.', to: '/deratisation-paris/' },
+  { name: 'Mulots', desc: 'Traitement et prévention.', to: '/deratisation-paris/' },
+  { name: 'Punaises de lit', desc: 'Chimique, vapeur ou cryogénie.', to: '/punaises-de-lit/' },
+  { name: 'Cafards & blattes', desc: 'Colonie et nids traités.', to: '/desinsectisation-cafards-blattes-idf/' },
+  { name: 'Fourmis', desc: 'Traitement du nid.', to: '/desinsectisation-fourmis-idf/' },
+  { name: 'Puces', desc: 'Traitement complet du logement.', to: '/demander-un-devis/' },
+  { name: 'Mites', desc: 'Alimentaires et vestimentaires.', to: '/demander-un-devis/' },
+  { name: 'Acariens', desc: 'Air intérieur assaini.', to: '/demander-un-devis/' },
 ];
 
 export const PRICES = [
@@ -168,9 +168,9 @@ export const PRICES = [
 ];
 
 export const GENERAL_FAQ = [
-  { q: 'En combien de temps pouvez-vous intervenir ?', a: "Nous intervenons en moins d'1 heure sur Paris et la petite couronne, 7j/7, et dans les meilleurs délais sur le reste de l'Île-de-France." },
-  { q: 'Le déplacement et le devis sont-ils payants ?', a: "Non. Le déplacement et l'établissement du devis sont entièrement gratuits, et nos prix sont fixes et annoncés avant toute intervention." },
-  { q: 'Vos traitements sont-ils adaptés aux enfants et aux animaux ?', a: "Oui. Nos techniciens certifiés Certibiocide utilisent des produits professionnels homologués et vous indiquent les consignes à respecter (aération, délai avant de réoccuper les pièces) pour la sécurité de toute la famille et de vos animaux." },
-  { q: 'Quels nuisibles traitez-vous ?', a: 'Rats, souris, mulots, surmulots, punaises de lit, cafards et blattes, fourmis, puces, mites et acariens, chez les particuliers comme chez les professionnels.' },
-  { q: 'Intervenez-vous pour les professionnels ?', a: "Oui : restaurants, hôtels, commerces, bureaux, copropriétés et bailleurs. Nous proposons des interventions ponctuelles et des contrats de suivi, avec rapport d'intervention pour vos contrôles sanitaires." },
+  { q: 'En combien de temps pouvez-vous intervenir ?', a: "En moins d'1 heure à Paris et en petite couronne, 7j/7. Au plus vite dans le reste de l'Île-de-France." },
+  { q: 'Le déplacement et le devis sont-ils payants ?', a: 'Non. Les deux sont gratuits, et le prix est fixé avant toute intervention.' },
+  { q: 'Vos traitements sont-ils adaptés aux enfants et aux animaux ?', a: 'Oui. Nos techniciens certifiés Certibiocide utilisent des produits homologués et vous donnent les consignes à suivre : aération, délai avant de réoccuper les pièces.' },
+  { q: 'Quels nuisibles traitez-vous ?', a: 'Rats, souris, mulots, punaises de lit, cafards, blattes, fourmis, puces, mites et acariens. Chez les particuliers comme chez les professionnels.' },
+  { q: 'Intervenez-vous pour les professionnels ?', a: 'Oui : restaurants, hôtels, commerces, bureaux, copropriétés. Interventions ponctuelles ou contrats de suivi, avec rapport pour vos contrôles sanitaires.' },
 ];
