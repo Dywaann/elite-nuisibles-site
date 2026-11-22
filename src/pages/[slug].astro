@@ -11,6 +11,7 @@ import FinalCta from '../components/FinalCta.astro';
 import PostCard from '../components/PostCard.astro';
 import PageHead from '../components/PageHead.astro';
 import TrustStrip from '../components/TrustStrip.astro';
+import { hlIdf } from '../lib/text';
 import ConversionBlock from '../components/ConversionBlock.astro';
 import Engagements from '../components/Engagements.astro';
 
@@ -88,7 +89,7 @@ const others = post ? ARTICLES.filter((a) => a.slug !== post.slug).slice(0, 3) :
           </ol>
         </nav>
         <span class="chip chip-navy"><i class="dot" aria-hidden="true"></i>{pest.eyebrow}</span>
-        <h1 class="h1">{pest.h1}</h1>
+        <h1 class="h1" set:html={hlIdf(pest.h1)} />
         <p class="lead">{pest.tagline} À partir de <b style="color:var(--navy)">{pest.priceFrom}</b>, prix fixe annoncé avant d'intervenir.</p>
         <div class="cta-row">
           <CallButton large />

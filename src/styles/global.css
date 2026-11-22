@@ -70,7 +70,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 /* ---------- Typographie ---------- */
 .eyebrow { font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-dark); }
 .h1 { overflow-wrap: break-word; font-size: clamp(34px, 5.4vw, 60px); line-height: 1.08; font-weight: 800; letter-spacing: -0.025em; text-wrap: balance; }
-.h1 em, .h1 .hl { font-style: normal; color: var(--blue); }
+.h1 em, .h1 .hl, .h2 .hl { font-style: normal; color: var(--blue); }
 .h2 { font-size: clamp(26px, 3.4vw, 38px); line-height: 1.15; font-weight: 800; letter-spacing: -0.02em; text-wrap: balance; }
 .h3 { font-size: 20px; line-height: 1.25; font-weight: 800; }
 .lead { font-size: clamp(16px, 1.6vw, 18px); line-height: 1.6; color: var(--muted); }
