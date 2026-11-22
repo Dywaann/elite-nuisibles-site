@@ -3,7 +3,7 @@ title: "Traitement punaises de lit : comment préparer son logement"
 seoTitle: "Traitement punaises de lit : préparer son logement"
 seoDescription: "Avant un traitement contre les punaises de lit : linge, literie, meubles, erreurs à éviter. La liste complète pour préparer votre logement et réussir l'intervention."
 date: 2026-11-22
-image: /images/traitement-vapeur-punaises.webp
+image: /images/traitement-punaises-de-lit-matelas.webp
 excerpt: "Linge, literie, meubles : ce qu'il faut faire avant, pendant et après le passage du technicien pour que le traitement fonctionne du premier coup."
 faq:
   - q: "Faut-il jeter son matelas ?"

@@ -15,11 +15,12 @@ import { breadcrumbLd, faqLd, localBusinessLd } from '../lib/seo';
 
 const path = '/professionnels-deratisation-paris/';
 const crumbs = [{ name: 'Accueil', path: '/' }, { name: 'Professionnels', path }];
-const hero = '/images/technicien-desinsectisation-cuisine.webp';
+const hero = '/images/desinsectisation-cuisine-professionnelle-restaurant.webp';
 const FAQ = [
   { q: 'Proposez-vous des contrats d’entretien pour les professionnels ?', a: 'Oui. Interventions ponctuelles ou contrats de suivi : passages réguliers, contrôle des postes, rapport.' },
   { q: 'Fournissez-vous un rapport pour les contrôles sanitaires ?', a: 'Oui : un rapport détaillé après chaque intervention, à présenter lors d’un contrôle d’hygiène.' },
   { q: 'Pouvez-vous intervenir en dehors des heures d’ouverture ?', a: 'Oui, 7j/7 : tôt le matin, le soir ou pendant la fermeture, sans gêner votre activité.' },
+  { q: 'Intervenez-vous en dehors de Paris ?', a: 'Oui, dans toute l’Île-de-France : Paris, Hauts-de-Seine, Seine-Saint-Denis, Val-de-Marne, Seine-et-Marne, Yvelines, Essonne et Val-d’Oise.' },
   { q: 'Intervenez-vous discrètement ?', a: 'Oui, avec des véhicules non marqués, pour préserver l’image de votre établissement.' },
 ];
 const ENJEUX = [
@@ -35,8 +36,8 @@ const SOLUTIONS = [
 const SECTEURS = ['Restaurants et bars', 'Hôtels et locations', 'Commerces', 'Bureaux et copropriétés'];
 ---
 <Base
-  title="Dératisation et désinsectisation pour professionnels à Paris | Elite Nuisibles IDF"
-  description="Solutions de dératisation et désinsectisation sur-mesure pour hôtels, restaurants, bureaux et commerces à Paris. Intervention rapide et discrète, rapport d’intervention."
+  title="Dératisation pour professionnels Paris & IDF | Elite Nuisibles IDF"
+  description="Solutions de dératisation et désinsectisation sur-mesure pour hôtels, restaurants, bureaux et commerces à Paris et dans toute l’Île-de-France. Intervention rapide et discrète, rapport d’intervention."
   path={path}
   image={hero}
   jsonLd={[localBusinessLd(), faqLd(FAQ), breadcrumbLd(crumbs)]}
@@ -47,7 +48,7 @@ const SECTEURS = ['Restaurants et bars', 'Hôtels et locations', 'Commerces', 'B
       <nav aria-label="Fil d'Ariane"><ol class="crumbs"><li><a href="/">Accueil</a></li><li><span aria-current="page">Professionnels</span></li></ol></nav>
       <span class="chip chip-navy"><i class="dot" aria-hidden="true"></i>Hôtels, restaurants et commerces</span>
       <h1 class="h1">Dératisation et désinsectisation pour les professionnels</h1>
-      <p class="lead">Protégez votre établissement et votre réputation, sans gêner votre activité.</p>
+      <p class="lead">À Paris et partout en Île-de-France, protégez votre établissement sans gêner votre activité.</p>
       <div class="cta-row">
         <CallButton large />
         <a href="#rappel" class="btn btn-ghost btn-lg m-hide" style="font-size:17px">Devis gratuit en 20 min</a>
@@ -62,7 +63,7 @@ const SECTEURS = ['Restaurants et bars', 'Hôtels et locations', 'Commerces', 'B
 
     <section class="split" style="margin-bottom:32px">
       <div class="photo split-main">
-        <img src={hero} alt="Technicien traitant une cuisine professionnelle" width="1600" height="673" fetchpriority="high" />
+        <img src={hero} alt="Technicien réalisant une désinsectisation dans une cuisine professionnelle" width="1600" height="673" fetchpriority="high" />
         <span class="float end"><Icon name="shield" size={18} />Entreprise assurée</span>
         <span class="float start"><i class="dot" aria-hidden="true"></i><span>Joignable 24h/24, 7j/7</span></span>
       </div>

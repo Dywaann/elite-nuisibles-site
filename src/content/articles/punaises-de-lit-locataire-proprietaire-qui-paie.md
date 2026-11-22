@@ -3,7 +3,7 @@ title: "Punaises de lit : locataire ou propriétaire, qui paie ?"
 seoTitle: "Punaises de lit : locataire ou propriétaire, qui paie ?"
 seoDescription: "Punaises de lit en location : qui paie le traitement ? Ce que dit la loi Élan, les exceptions, les démarches à suivre et le prix d'une intervention à Paris."
 date: 2026-11-22
-image: /images/punaise-de-lit-drap.webp
+image: /images/punaise-de-lit-drap-detection.webp
 excerpt: "En location, le propriétaire paie le traitement, sauf s'il prouve que le locataire est responsable. La règle, les exceptions et la marche à suivre."
 faq:
   - q: "Le propriétaire peut-il me refacturer le traitement dans les charges ?"
@@ -63,7 +63,7 @@ Conservez le rapport d'intervention et la facture. Ils prouvent que vous avez re
 
 Ne suspendez pas votre loyer de votre propre initiative : seul un juge peut l'autoriser. Ces repères sont généraux et ne remplacent pas un conseil juridique.
 
-## Combien coûte un traitement à Paris ?
+## Combien coûte un traitement à Paris et en Île-de-France ?
 
 Chez Elite Nuisibles IDF, le diagnostic et le déplacement sont gratuits, et le prix est fixé avant l'intervention :
 

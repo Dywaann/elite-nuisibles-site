@@ -1,9 +1,9 @@
 ---
-title: "Prix d'une dératisation à Paris : nos tarifs au m²"
-seoTitle: "Prix d'une dératisation à Paris : tarifs au m²"
-seoDescription: "Combien coûte une dératisation à Paris ? Nos tarifs par surface dès 109 €, ce qui fait varier le prix, ce qui est inclus et qui doit payer entre locataire et propriétaire."
+title: "Prix d'une dératisation à Paris et en Île-de-France : nos tarifs au m²"
+seoTitle: "Prix dératisation Paris et Île-de-France : tarifs au m²"
+seoDescription: "Combien coûte une dératisation à Paris et en Île-de-France ? Nos tarifs par surface dès 109 €, ce qui fait varier le prix, ce qui est inclus et qui doit payer entre locataire et propriétaire."
 date: 2026-11-22
-image: /images/rat-gris-paris.webp
+image: /images/deratisation-rat-paris-ile-de-france.webp
 excerpt: "Dès 109 € jusqu'à 30 m². Notre grille par surface, les 4 facteurs qui font varier le prix, et les pièges à éviter sur un devis."
 faq:
   - q: "Le devis de dératisation est-il gratuit ?"
@@ -16,7 +16,7 @@ faq:
     a: "Le prix dépend de la surface, de l'activité et de la fréquence des passages. Nous établissons un devis sur mesure après visite."
 ---
 
-**À Paris, une dératisation coûte à partir de 109 € pour un logement jusqu'à 30 m².** Le prix final dépend surtout de la surface et du niveau d'infestation. Voici notre grille, ce qui la fait varier, et ce qu'un devis sérieux doit contenir.
+**À Paris comme partout en Île-de-France, une dératisation coûte à partir de 109 € pour un logement jusqu'à 30 m².** Le prix final dépend surtout de la surface et du niveau d'infestation. Voici notre grille, ce qui la fait varier, et ce qu'un devis sérieux doit contenir.
 
 ## Nos tarifs de dératisation par surface
 

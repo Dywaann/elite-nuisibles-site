@@ -15,9 +15,9 @@ import { breadcrumbLd, localBusinessLd } from '../lib/seo';
 const path = '/services-lutte-nuisibles-paris/';
 const crumbs = [{ name: 'Accueil', path: '/' }, { name: 'Nos services', path }];
 const BIG = [
-  { icon: 'target', title: 'Dératisation', text: 'Rats, souris, mulots : élimination rapide, prévention durable.', to: '/deratisation-paris/', img: '/images/rat-piege-deratisation.webp' },
-  { icon: 'bug', title: 'Désinsectisation', text: 'Cafards, punaises de lit, fourmis, puces, mites.', to: '/desinsectisation-cafards-blattes-idf/', img: '/images/traitement-insecticide-cuisine.webp' },
-  { icon: 'shield', title: 'Désinfection', text: 'Un environnement sain après l’infestation.', to: '/demander-un-devis/', img: '/images/traitement-vapeur-punaises.webp' },
+  { icon: 'target', title: 'Dératisation', text: 'Rats, souris, mulots : élimination rapide, prévention durable.', to: '/deratisation-paris/', img: '/images/deratisation-rat-capture-cage.webp', alt: 'Rat capturé dans une cage lors d’une dératisation' },
+  { icon: 'bug', title: 'Désinsectisation', text: 'Cafards, punaises de lit, fourmis, puces, mites.', to: '/desinsectisation-cafards-blattes-idf/', img: '/images/traitement-cafards-blattes-cuisine.webp', alt: 'Technicien traitant une cuisine contre les cafards' },
+  { icon: 'shield', title: 'Désinfection', text: 'Un environnement sain après l’infestation.', to: '/demander-un-devis/', img: '/images/traitement-punaises-de-lit-matelas.webp', alt: 'Technicien désinfectant un matelas dans un logement' },
 ];
 const PROMISES = [
   { icon: 'shield', title: 'Qualité et expertise', text: 'Techniciens certifiés, méthodes éprouvées.' },
@@ -31,7 +31,7 @@ const PROMISES = [
   path={path}
   jsonLd={[localBusinessLd(), breadcrumbLd(crumbs)]}
 >
-  <PageHead crumbs={crumbs} title="Nos services de lutte contre les nuisibles" intro="Sur place en moins d'1h, 7j/7. Déplacement et devis gratuits, prix fixes.">
+  <PageHead crumbs={crumbs} title="Nos services de lutte contre les nuisibles" intro="À Paris et partout en Île-de-France, 7j/7. Déplacement et devis gratuits, prix fixes.">
     <div class="cta-row"><CallButton /><a class="btn btn-ghost" href="/demander-un-devis/">Demander un devis gratuit</a></div>
   </PageHead>
 
@@ -42,7 +42,7 @@ const PROMISES = [
       <div class="grid grid-3 m-scroll">
         {BIG.map((s) => (
           <a class="glass post-card reveal" href={s.to}>
-            <div class="thumb"><img src={s.img} alt="" loading="lazy" width="640" height="360" /></div>
+            <div class="thumb"><img src={s.img} alt={s.alt} loading="lazy" width="640" height="360" /></div>
             <div class="body">
               <h2 class="h3" style="font-size:22px">{s.title}</h2>
               <p>{s.text}</p>

@@ -3,7 +3,7 @@ title: "Souris dans la maison en hiver : signes et solutions"
 seoTitle: "Souris dans la maison en hiver : signes et solutions"
 seoDescription: "Bruits dans les cloisons, crottes, emballages rongés : comment reconnaître une invasion de souris en hiver, pourquoi agir vite et comment s'en débarrasser durablement."
 date: 2026-11-22
-image: /images/technicien-deratisation.webp
+image: /images/technicien-deratisation-rat-cuisine.webp
 excerpt: "Dès les premiers froids, les souris cherchent chaleur et nourriture chez vous. Les 5 signes qui ne trompent pas, et la méthode pour s'en débarrasser."
 faq:
   - q: "Une seule souris, est-ce grave ?"
@@ -63,4 +63,4 @@ Notre méthode tient en trois temps : repérer les points d'entrée, traiter ave
 
 ## Un technicien chez vous en moins d'1h
 
-À Paris et en petite couronne, nous intervenons en moins d'1h, 7j/7. Le diagnostic est gratuit et le prix fixé avant l'intervention. Voir notre service de [dératisation](/deratisation-paris/), à partir de 109 €, ou appelez le 01 79 75 30 40.
+Nous intervenons 7j/7 dans toute l'Île-de-France, en moins d'1h à Paris et en petite couronne. Le diagnostic est gratuit et le prix fixé avant l'intervention. Voir notre service de [dératisation](/deratisation-paris/), à partir de 109 €, ou appelez le 01 79 75 30 40.

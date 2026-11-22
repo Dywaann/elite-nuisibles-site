@@ -3,7 +3,7 @@ title: "Cafards dans l'immeuble : syndic ou occupant, qui agit ?"
 seoTitle: "Cafards dans l'immeuble : syndic ou occupant, qui agit ?"
 seoDescription: "Cafards en copropriété : qui doit traiter et qui paie ? Parties communes, logement, rôle du syndic, démarches à suivre et prix d'une désinsectisation en Île-de-France."
 date: 2026-11-22
-image: /images/cafard-blatte.webp
+image: /images/cafard-blatte-cuisine.webp
 excerpt: "Dans un immeuble, traiter un seul appartement ne suffit presque jamais. Qui doit agir, qui paie, et comment obtenir un traitement coordonné."
 faq:
   - q: "Le syndic a-t-il besoin d'un vote pour traiter les parties communes ?"

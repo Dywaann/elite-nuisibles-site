@@ -73,7 +73,7 @@ const fromMarkdown: Article[] = await Promise.all(
       seoDescription: fm.seoDescription || fm.excerpt || '',
       date: isoDate(fm.date),
       updatedIso: fm.updated ? isoDate(fm.updated) : null,
-      image: fm.image || '/images/technicien-elite-nuisibles-intervention.webp',
+      image: fm.image || '/images/technicien-traitement-punaises-de-lit-sommier.webp',
       excerpt: fm.excerpt || '',
       readingMinutes: fm.readingMinutes || Math.max(1, Math.round(words / 220)),
       html,

@@ -3,7 +3,7 @@ title: "Nuisibles en restaurant : réussir son contrôle d'hygiène"
 seoTitle: "Nuisibles en restaurant : réussir son contrôle d'hygiène"
 seoDescription: "Plan de lutte contre les nuisibles, documents à présenter, erreurs à éviter : ce que les inspecteurs vérifient dans un restaurant et comment être prêt à tout moment."
 date: 2026-11-22
-image: /images/technicien-desinsectisation-cuisine.webp
+image: /images/desinsectisation-cuisine-professionnelle-restaurant.webp
 excerpt: "Ce que les inspecteurs regardent côté nuisibles, les documents à avoir sous la main et le plan de lutte à mettre en place dans votre établissement."
 faq:
   - q: "Un contrat de dératisation est-il obligatoire pour un restaurant ?"

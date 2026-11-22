@@ -14,9 +14,9 @@ export const SITE = {
   address: { street: '34 Rue de Bretagne', zip: '94000', city: 'Créteil' },
   rating: { value: '4,98', count: 169, schemaValue: '4.98' },
   web3formsKey: 'af7c4c07-8a63-4809-bec5-fde132be2be4',
-  logo: '/images/logo-elite-nuisibles-horizontal.webp',
-  logoPng: '/images/logo-elite-nuisibles.png',
-  ogImage: '/images/hero-techniciens-traitement-nuisibles.webp',
+  logo: '/images/logo-elite-nuisibles-ile-de-france.webp',
+  logoPng: '/images/logo-elite-nuisibles-idf.png',
+  ogImage: '/images/techniciens-desinsectisation-logement-ile-de-france.webp',
   // Balises de suivi reprises à l'identique du site précédent.
   gtmId: 'GTM-PQ4N9D3H',
   ga4Id: 'G-3HEKY02K7H',
@@ -47,11 +47,11 @@ export const NAV: NavItem[] = [
 // et s'affichent en noir transparent (voir .clients dans global.css).
 // h = hauteur d'affichage en pixels, w/hh = dimensions d'origine du fichier (pour réserver la place).
 export const CLIENTS: { name: string; logo?: string; h?: number; w?: number; hh?: number }[] = [
-  { name: 'Century 21', logo: '/images/clients/century-21.svg', h: 22, w: 170, hh: 20 },
-  { name: 'Franprix', logo: '/images/clients/franprix.png', h: 38, w: 644, hh: 133 },
-  { name: 'G20', logo: '/images/clients/g20.png', h: 56, w: 338, hh: 179 },
-  { name: 'Hôtel F1', logo: '/images/clients/hotel-f1.png', h: 52, w: 912, hh: 264 },
-  { name: 'Monoprix', logo: '/images/clients/monoprix.svg', h: 26, w: 539, hh: 75 },
+  { name: 'Century 21', logo: '/images/clients/logo-century-21.svg', h: 22, w: 170, hh: 20 },
+  { name: 'Franprix', logo: '/images/clients/logo-franprix.png', h: 38, w: 644, hh: 133 },
+  { name: 'G20', logo: '/images/clients/logo-g20.png', h: 56, w: 338, hh: 179 },
+  { name: 'Hôtel F1', logo: '/images/clients/logo-hotel-f1.png', h: 52, w: 912, hh: 264 },
+  { name: 'Monoprix', logo: '/images/clients/logo-monoprix.svg', h: 26, w: 539, hh: 75 },
 ];
 
 // Les 4 chiffres validés pour l'accueil (le premier est mis en avant).
@@ -63,7 +63,7 @@ export const KEY_FIGURES = [
 ];
 
 export const ENGAGEMENTS = [
-  { icon: 'clock', title: "Sur place en moins d'1h", text: 'Paris et petite couronne, 7j/7.' },
+  { icon: 'clock', title: "Sur place en moins d'1h", text: 'Paris et petite couronne. Toute l’Île-de-France, 7j/7.' },
   { icon: 'tag', title: 'Prix fixe, sans surprise', text: "Annoncé avant l'intervention. Paiement échelonné possible." },
   { icon: 'shield', title: 'Certifiés Certibiocide', text: 'Techniciens certifiés, entreprise assurée.' },
   { icon: 'heart', title: 'Sûr pour vos proches', text: 'Produits homologués, consignes claires pour enfants et animaux.' },
@@ -170,6 +170,7 @@ export const PRICES = [
 
 export const GENERAL_FAQ = [
   { q: 'En combien de temps pouvez-vous intervenir ?', a: "En moins d'1 heure à Paris et en petite couronne, 7j/7. Au plus vite dans le reste de l'Île-de-France." },
+  { q: 'Où intervenez-vous ?', a: 'À Paris et dans toute l’Île-de-France : Hauts-de-Seine, Seine-Saint-Denis, Val-de-Marne, Seine-et-Marne, Yvelines, Essonne et Val-d’Oise.' },
   { q: 'Le déplacement et le devis sont-ils payants ?', a: 'Non. Les deux sont gratuits, et le prix est fixé avant toute intervention.' },
   { q: 'Vos traitements sont-ils adaptés aux enfants et aux animaux ?', a: 'Oui. Nos techniciens certifiés Certibiocide utilisent des produits homologués et vous donnent les consignes à suivre : aération, délai avant de réoccuper les pièces.' },
   { q: 'Quels nuisibles traitez-vous ?', a: 'Rats, souris, mulots, punaises de lit, cafards, blattes, fourmis, puces, mites et acariens. Chez les particuliers comme chez les professionnels.' },
