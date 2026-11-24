@@ -47,7 +47,7 @@ export const NAV: NavItem[] = [
 // et s'affichent en noir transparent (voir .clients dans global.css).
 // h = hauteur d'affichage en pixels, w/hh = dimensions d'origine du fichier (pour réserver la place).
 export const CLIENTS: { name: string; logo?: string; h?: number; w?: number; hh?: number }[] = [
-  { name: 'Campanile' },
+  { name: 'Campanile', logo: '/images/clients/logo-campanile.png', h: 34, w: 900, hh: 173 },
   { name: 'Century 21', logo: '/images/clients/logo-century-21.svg', h: 22, w: 170, hh: 20 },
   { name: 'Franprix', logo: '/images/clients/logo-franprix.png', h: 38, w: 644, hh: 133 },
   { name: 'G20', logo: '/images/clients/logo-g20.png', h: 56, w: 338, hh: 179 },
@@ -59,7 +59,7 @@ export const CLIENTS: { name: string; logo?: string; h?: number; w?: number; hh?
 export const KEY_FIGURES = [
   { value: '0 €', label: 'le déplacement et le diagnostic', highlight: true },
   { value: "Moins d'1h", label: 'à Paris et en petite couronne' },
-  { value: '20 min', label: 'pour recevoir votre devis' },
+  { value: '5 min', label: 'pour recevoir votre devis' },
   { value: '7j/7', label: 'téléphone ouvert 24h/24' },
 ];
 
