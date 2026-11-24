@@ -1,5 +1,5 @@
 ---
-// Bloc de conversion de bas de page : appel immédiat + formulaire de rappel.
+// Bloc de conversion de bas de page : appel immédiat + formulaire de devis.
 import Icon from './Icon.astro';
 import Stars from './Stars.astro';
 import CallButton from './CallButton.astro';
@@ -11,7 +11,7 @@ const {
   source,
   service = 'Demande de devis - Site principal',
   title = 'Un nuisible chez vous ? Parlons-en maintenant',
-  text = 'Conseil immédiat par téléphone, ou rappel en 20 minutes.',
+  text = 'Conseil immédiat par téléphone, ou votre devis en 20 minutes.',
 } = Astro.props;
 ---
 <section class="section" aria-labelledby={`${id}-titre`}>
@@ -30,7 +30,7 @@ const {
         <span class="rating"><Stars label={`Note ${SITE.rating.value} sur 5`} />{SITE.rating.value}/5 sur {SITE.rating.count} avis Google</span>
       </div>
       <div class="split-side reveal">
-        <LeadForm id={id} source={`${source} - bas de page`} service={service} title="Être rappelé en 20 minutes" subtitle="Gratuit, sans engagement." message />
+        <LeadForm id={id} source={`${source} - bas de page`} service={service} title="Mon devis gratuit en 20 min" subtitle="Gratuit, sans engagement." message />
       </div>
     </div>
   </div>

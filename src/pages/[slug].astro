@@ -93,7 +93,7 @@ const others = post ? ARTICLES.filter((a) => a.slug !== post.slug).slice(0, 3) :
         <p class="lead">{pest.tagline} À partir de <b style="color:var(--navy)">{pest.priceFrom}</b>, prix fixe annoncé avant d'intervenir.</p>
         <div class="cta-row">
           <CallButton large />
-          <a href="#rappel" class="btn btn-ghost btn-lg m-hide" style="font-size:17px">Devis gratuit en 20 min</a>
+          <a href="#rappel" class="btn btn-ghost btn-lg m-hide" style="font-size:17px">Mon devis gratuit en 20 min</a>
         </div>
         <ul class="pills center">
           {pest.bullets.map((b) => <li><Icon name="check" size={18} stroke={2.8} />{b}</li>)}
@@ -108,7 +108,7 @@ const others = post ? ARTICLES.filter((a) => a.slug !== post.slug).slice(0, 3) :
           <span class="float start"><i class="dot" aria-hidden="true"></i><span>Joignable 24h/24, 7j/7</span></span>
         </div>
         <div class="split-side">
-          <LeadForm source={`Site principal - ${pest.serviceName}`} service={pest.formService} title="Devis gratuit en 20 minutes" subtitle="Un expert vous rappelle. Gratuit, sans engagement." button="J'obtiens mon devis" />
+          <LeadForm source={`Site principal - ${pest.serviceName}`} service={pest.formService} title="Mon devis gratuit en 20 min" subtitle="Un expert vous appelle. Gratuit, sans engagement." button="J'obtiens mon devis" />
         </div>
       </section>
     </div>
@@ -216,7 +216,7 @@ const others = post ? ARTICLES.filter((a) => a.slug !== post.slug).slice(0, 3) :
             </div>
           </article>
           <aside class="split-side sticky-side">
-            <LeadForm id="devis-blog" source={`Blog - ${post.slug}`} service="Demande depuis le blog" title="Devis gratuit en 20 minutes" subtitle="Un expert vous rappelle, sans engagement." heading="p" />
+            <LeadForm id="devis-blog" source={`Blog - ${post.slug}`} service="Demande depuis le blog" title="Mon devis gratuit en 20 min" subtitle="Un expert vous appelle, sans engagement." heading="p" />
             <div class="glass card">
               <p class="h3" style="font-size:16px">Nos services</p>
               <ul class="stack" style="gap:2px">{SERVICES_NAV.map((s) => <li><a class="link-arrow" style="min-height:36px;font-size:15px" href={s.to}>{s.label}</a></li>)}</ul>

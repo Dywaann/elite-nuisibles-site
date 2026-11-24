@@ -47,6 +47,7 @@ export const NAV: NavItem[] = [
 // et s'affichent en noir transparent (voir .clients dans global.css).
 // h = hauteur d'affichage en pixels, w/hh = dimensions d'origine du fichier (pour réserver la place).
 export const CLIENTS: { name: string; logo?: string; h?: number; w?: number; hh?: number }[] = [
+  { name: 'Campanile' },
   { name: 'Century 21', logo: '/images/clients/logo-century-21.svg', h: 22, w: 170, hh: 20 },
   { name: 'Franprix', logo: '/images/clients/logo-franprix.png', h: 38, w: 644, hh: 133 },
   { name: 'G20', logo: '/images/clients/logo-g20.png', h: 56, w: 338, hh: 179 },
